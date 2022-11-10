@@ -4,7 +4,7 @@
 
 ### Mari Dilig <br />
 
-[Github]() | [LinkedIn]() <br />
+[Github](https://github.com/maripd) | [LinkedIn](https://www.linkedin.com/in/marissa-dilig/) <br />
 
 ### Ben Kaplan <br />
 
