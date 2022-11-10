@@ -1,10 +1,20 @@
-# Foliage Friends : Say Aloe to my Little Friends
+# Foliage Friends : Say Aloe to my Little Friends (frontend)
 
-### By: Mari Dilig, Ben Kaplan, and Josh Levine
+### By:
+
+### Mari Dilig <br />
+
+[Github]() | [LinkedIn]() <br />
+
+### Ben Kaplan <br />
+
+[Github](https://github.com/JBenKaplan) | [LinkedIn](https://www.linkedin.com/in/jbenkaplan/) <br />
+
+### Josh Levine <br />
+
+[Github]() | [LinkedIn]() <br />
 
 ### Date: 11/18/2022
-
-| [GitHub](https://github.com/JBenKaplan) | [Trello](https://trello.com/b/gHbLKWLd/foliage-friends-say-aloe-to-my-little-friends) | [LinkedIn](https://www.linkedin.com/in/jbenkaplan/) | [Deployed Site]() |
 
 ---
 
@@ -13,6 +23,10 @@
 ---
 
 This application will allow you to setup rooms and add in your leafy green friends to keep track of them and how they're doing.
+
+You can find our development progress in our [Trello](https://trello.com/b/gHbLKWLd/foliage-friends-say-aloe-to-my-little-friends).
+
+To use our app, follow the [link]() to our deployed site.
 
 ## Getting Started
 
@@ -27,15 +41,12 @@ This application will allow you to setup rooms and add in your leafy green frien
 
 ---
 
-- Frontend
+- Development
   - HTML
   - CSS
   - JS
   - React
   - Node JS
-- Backend
-  - Postgresql
-  - Express
 - Deployment
   - Heroku
 
