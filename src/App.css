@@ -2,37 +2,81 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header {
+  text-align: center;
+  color:rgb(61, 125, 94);
+  text-decoration-line: none;
+  font-family: 'Playfair';
+  color: rgb(177, 172, 156);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.header-text {
+  margin: 50px auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.apptitle-container {
+  margin:20px auto;
+}
+.signup-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 600px;
+  margin: 150px auto;
+  padding: 50px 20px;
+  background-color: rgb(180, 219, 203);
+}
+.signup-input, .signup-btn {
+  margin: 10px auto;
+  padding: 5px 50px;
 }
 
-.App-link {
-  color: #61dafb;
+
+.login-container {
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.button-form-container {
+  margin: 100px;
+}
+
+.signup-btn {
+  padding: 8px 20px;
+}
+
+.signin-container {
+  display: flex;
+  flex-direction: column;
+  margin: 50px auto;
+  width: 400px;
+  padding: 30px 50px;
+  background-color: rgb(188, 236, 188);
+}
+
+.signin-input {
+  margin: 8px auto;
+  padding: 8px 30px;
+}
+
+.submit-btn {
+  padding: 8px 20px;
+  margin: 10px auto; 
+}
+
+.signin-text {
+  color: rgb(6, 115, 6);
+}
+
+/* .landing-header {
+  background-image: url("landing-img.jpg");
+} */
+
+.landing-container {
+  text-align: center;
+}
+
+.enter-btn {
+  margin: 200px auto;
+  padding: 15px 30px;
+  font-size: 15px;
+  font-family: 'Playfair';
 }
