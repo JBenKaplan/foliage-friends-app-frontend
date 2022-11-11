@@ -8,8 +8,8 @@ const Landing = () => {
   }
 
   return (
-    <div>
-      <h1>Foliage Friends</h1>
+    <div className="landing-container">
+      <header className="landing-header"></header>
       <button onClick={clickEnter} className="enter-btn">
         ENTER
       </button>
