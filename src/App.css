@@ -6,7 +6,16 @@
   text-align: center;
   color:rgb(61, 125, 94);
   text-decoration-line: none;
-  
+  font-family: 'Playfair';
+  color: rgb(177, 172, 156);
+}
+
+.header-text {
+  margin: 50px auto;
+}
+
+.apptitle-container {
+  margin:20px auto;
 }
 .signup-container {
   display: flex;
@@ -57,6 +66,17 @@
   color: rgb(6, 115, 6);
 }
 
-.landing-header {
-  background-image: url('src/components/landingImage.png');
+/* .landing-header {
+  background-image: url("landing-img.jpg");
+} */
+
+.landing-container {
+  text-align: center;
+}
+
+.enter-btn {
+  margin: 200px auto;
+  padding: 15px 30px;
+  font-size: 15px;
+  font-family: 'Playfair';
 }
