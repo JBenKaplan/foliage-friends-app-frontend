@@ -16,6 +16,10 @@ const Room = () => {
       currentNameInputValue,
       currentTextInputValue
     )
+    setRoomInputValue('')
+    setImageInputValue('')
+    setNameInputValue('')
+    setTextInputValue('')
   }
 
   const roomHandleChange = (e) => {
