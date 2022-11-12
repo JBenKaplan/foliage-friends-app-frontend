@@ -1,8 +1,6 @@
 body {
-  /* background-image: url('./components/landingimage.png'); */
-  background-position: center;
+  background-image: url('./components/landingimage.png');
   background-size: cover;
-  background-repeat: no-repeat;
   
 }
 
@@ -81,6 +79,7 @@ body {
   padding: 15px 30px;
   font-size: 15px;
   font-family: 'Playfair';
+  opacity: .5;
 }
 
 .addplant-btn {
@@ -145,3 +144,64 @@ padding: 0;
 .addplantbtn-container {
  margin: 30px auto;
 }
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: auto auto;
+}
+
+.mainroom-container {
+width: 700px;
+height: 500px;
+
+border: 1px solid rgba(121, 143, 132, 0.596);
+margin: 30px auto;
+display: flex;
+justify-content: center;
+background-color: #bccfbe;
+}
+
+#room-input, #plantname-input, #description-input {
+  font-family: 'Playfair';
+  padding: 10px 15px;
+  margin: 6px 30px;
+  border-color: rgb(238, 236, 231);
+}
+
+#image-input {
+ font-family: 'Playfair';
+ padding: 10px 5px;
+ margin: 6px 30px;
+ text-align: center;
+}
+
+#image-input {
+  border: 2px solid rgb(146, 173, 156);
+  padding: 5px auto;
+  background-color: rgba(242, 250, 246, 0.876);
+}
+
+.roomform-submitbtn {
+  font-family: 'Playfair';
+  padding: 10px 10px;
+  margin: 5px auto;
+  color: rgba(108, 123, 116, 0.596);
+}
+
+
+/* #description-input {
+
+} */
+
+
+.dropdown-panel {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+

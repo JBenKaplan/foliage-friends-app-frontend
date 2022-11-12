@@ -1,8 +1,9 @@
-// import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
 // // import axios from 'axios'
 // import { useParams } from 'react-router-dom'
 // import { useNavigate } from 'react-router-dom'
 import plantImage from './sampleplant.png'
+import Room from './Room.js'
 
 const mockData = [
   {
@@ -96,12 +97,34 @@ const mockData = [
 ]
 
 const PlantGallery = (props) => {
+  const [currentAddPlantState, setAddPlantState] = useState(false)
+
+  const addPlantHandleClick = (e) => {
+    if (currentAddPlantState === false) {
+      setAddPlantState(true)
+    } else {
+      setAddPlantState(false)
+    }
+  }
+  console.log(currentAddPlantState)
+
+  let panelDisplay = 'hide'
+  if (currentAddPlantState === true) {
+    panelDisplay = ''
+  }
+
   return (
     <div className="main-container">
       <div className="roomlist-container">
         <div className="addplantbtn-container">
-          <button className="addplant-btn">ADD PLANT</button>
+          <button onClick={addPlantHandleClick} className="addplant-btn">
+            ADD PLANT
+          </button>
         </div>
+        <div className={`dropdown-panel ${panelDisplay}`}>
+          <Room />
+        </div>
+
         <ul className="li-container">
           {mockData.map((galleryItem) => {
             console.log(galleryItem)
