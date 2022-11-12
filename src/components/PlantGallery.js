@@ -98,6 +98,7 @@ const mockData = [
 
 const PlantGallery = (props) => {
   const [currentAddPlantState, setAddPlantState] = useState(false)
+  const [currentAllPlants, setAllPlants] = useState(mockData)
 
   const addPlantHandleClick = (e) => {
     if (currentAddPlantState === false) {
@@ -106,7 +107,6 @@ const PlantGallery = (props) => {
       setAddPlantState(false)
     }
   }
-  console.log(currentAddPlantState)
 
   let panelDisplay = 'hide'
   if (currentAddPlantState === true) {
@@ -126,8 +126,7 @@ const PlantGallery = (props) => {
         </div>
 
         <ul className="li-container">
-          {mockData.map((galleryItem) => {
-            console.log(galleryItem)
+          {currentAllPlants.map((galleryItem) => {
             return (
               <li className="rooms">
                 <p className="room-text">{galleryItem.room}</p>
