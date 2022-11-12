@@ -7,6 +7,10 @@ const LogIn = () => {
     navigate('/register')
   }
 
+  const clickSubmit = (e) => {
+    navigate('/plantgallery')
+  }
+
   return (
     <div className="login-container">
       <div className="button-form-container">
@@ -28,7 +32,7 @@ const LogIn = () => {
             className="signin-input"
             placeholder="password"
           ></input>
-          <button type="submit" className="submit-btn">
+          <button onClick={clickSubmit} type="submit" className="submit-btn">
             Submit
           </button>
         </form>

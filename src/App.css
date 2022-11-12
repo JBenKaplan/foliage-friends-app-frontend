@@ -1,29 +1,30 @@
+body {
+  /* background-image: url('./components/landingimage.png'); */
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+}
+
 .App {
   text-align: center;
 }
 
 .header {
   text-align: center;
-  color:rgb(61, 125, 94);
+  color:#A2C3A4;
   text-decoration-line: none;
   font-family: 'Playfair';
   color: rgb(177, 172, 156);
 }
 
-.header-text {
-  margin: 50px auto;
-}
-
-.apptitle-container {
-  margin:20px auto;
-}
 .signup-container {
   display: flex;
   flex-direction: column;
   width: 600px;
   margin: 150px auto;
   padding: 50px 20px;
-  background-color: rgb(180, 219, 203);
+  background-color: #A2C3A4;
 }
 .signup-input, .signup-btn {
   margin: 10px auto;
@@ -33,23 +34,27 @@
 
 .login-container {
   text-align: center;
+  margin: 0 auto;
 }
 
 .button-form-container {
-  margin: 100px;
+  margin: 100px auto;
+  width: 400px;
 }
 
 .signup-btn {
   padding: 8px 20px;
+  margin: auto;
+  
 }
 
 .signin-container {
   display: flex;
   flex-direction: column;
   margin: 50px auto;
-  width: 400px;
+ 
   padding: 30px 50px;
-  background-color: rgb(188, 236, 188);
+  background-color: #A2C3A4;
 }
 
 .signin-input {
@@ -63,12 +68,9 @@
 }
 
 .signin-text {
-  color: rgb(6, 115, 6);
+  color: #768076;
 }
 
-/* .landing-header {
-  background-image: url("landing-img.jpg");
-} */
 
 .landing-container {
   text-align: center;
@@ -79,4 +81,67 @@
   padding: 15px 30px;
   font-size: 15px;
   font-family: 'Playfair';
+}
+
+.addplant-btn {
+  display: flex;
+}
+
+
+.addplant-btn {
+  margin: 20px auto;
+  text-align: center;
+  padding: 10px 15px;
+  opacity: .4;
+  color:rgb(81, 78, 71);
+  font-weight: bold;
+  font-family: 'Playfair';
+}
+
+.li-container {
+display: flex;
+flex-wrap: wrap;
+margin: auto 8px;
+padding: 0;
+}
+
+
+.rooms {
+
+  margin: 20px auto;
+  list-style: none;
+  color:#768076;
+}
+
+.room-text {
+  margin: 20px auto;
+  text-align: center;
+  font-family: 'Playfair';
+  font-weight: 400;
+}
+
+.sampleplant-img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 1px solid rgb(135, 133, 129);
+  background-color: rgb(226, 230, 219);
+}
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  background-color: #A2C3A4 ;
+}
+.roomlist-container {
+  margin: auto 20px;
+}
+.apptitle-container {
+  display: flex;
+  justify-content: center;
+  margin: 50px auto;
+}
+
+.addplantbtn-container {
+ margin: 30px auto;
 }

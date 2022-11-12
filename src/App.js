@@ -4,6 +4,7 @@ import Landing from './components/Landing'
 import LogIn from './components/LogIn'
 import Register from './components/Register'
 import AppTitle from './components/AppTitle'
+import PlantGallery from './components/PlantGallery'
 
 const App = () => {
   return (
@@ -13,7 +14,7 @@ const App = () => {
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/register" element={<Register />} />
-        {/* <Route path="/plantgallery/" element={<PlantGallery />} /> */}
+        <Route path="/plantgallery" element={<PlantGallery />} />
       </Routes>
     </div>
   )
