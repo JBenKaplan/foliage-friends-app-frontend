@@ -111,6 +111,16 @@ const PlantGallery = (props) => {
     panelDisplay = ''
   }
 
+  useEffect(() => {
+    //fetch api
+    const getAllPlants = async () => {
+      //axios.get()
+      // update currentAllPlants
+      //setAllPlants
+    }
+    getAllPlants()
+  })
+
   return (
     <div className="main-container">
       <div className="roomlist-container">
