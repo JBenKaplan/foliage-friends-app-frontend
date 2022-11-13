@@ -113,10 +113,21 @@ padding: 0;
 }
 
 .room-text {
+  font-size: larger;
+  font-weight: 600;
   margin: 20px auto;
   text-align: center;
   font-family: 'Playfair';
-  font-weight: 400;
+  font-weight: 300;
+  color: rgb(89, 86, 86);
+}
+
+
+.plant-name {
+  margin: 20px auto;
+  text-align: center;
+  font-family: 'Playfair';
+  font-weight: 300;
 }
 
 .sampleplant-img {
@@ -202,5 +213,4 @@ background-color: #bccfbe;
 .hide {
   display: none;
 }
-
 
