@@ -1,13 +1,60 @@
+import { useState, useEffect } from 'react'
+
 const Room = () => {
+  const [currentSubmitValue, setSubmitValue] = useState()
+  const [currentRoomInputValue, setRoomInputValue] = useState()
+  const [currentImageInputValue, setImageInputValue] = useState()
+  const [currentNameInputValue, setNameInputValue] = useState()
+  const [currentTextInputValue, setTextInputValue] = useState()
+
+  const submitHandleClick = (e) => {
+    e.preventDefault()
+    console.log(
+      'submit click',
+      currentRoomInputValue,
+      currentImageInputValue,
+      currentNameInputValue,
+      currentTextInputValue
+    )
+    setRoomInputValue('')
+    setImageInputValue('')
+    setNameInputValue('')
+    setTextInputValue('')
+  }
+
+  const roomHandleChange = (e) => {
+    setRoomInputValue(e.target.value)
+  }
+
+  const imageHandleChange = (e) => {
+    setImageInputValue(e.target.value)
+  }
+
+  const nameHandleChange = (e) => {
+    setNameInputValue(e.target.value)
+  }
+
+  const textHandleChange = (e) => {
+    setTextInputValue(e.target.value)
+  }
+
   return (
     <div className="mainroom-container">
       <form className="form-container">
-        <input type="text" placeholder="Room" id="room-input"></input>
+        <input
+          onChange={roomHandleChange}
+          type="text"
+          placeholder="Room"
+          value={currentRoomInputValue}
+          id="room-input"
+        ></input>
 
         <label>
           <input
+            onChange={imageHandleChange}
             type="file"
             src="./uploadimage.png"
+            value={currentImageInputValue}
             placeholder="upload image"
             id="image-input"
           ></input>
@@ -15,16 +62,25 @@ const Room = () => {
 
         <input
           type="text"
+          onChange={nameHandleChange}
+          value={currentNameInputValue}
           placeholder="Plant name"
           id="plantname-input"
         ></input>
 
         <textarea
+          onChange={textHandleChange}
           type="text"
+          value={currentTextInputValue}
           placeholder="Plant description"
           id="description-input"
         ></textarea>
-        <button type="submit" className="roomform-submitbtn">
+        <button
+          onClick={submitHandleClick}
+          type="submit"
+          value="value"
+          className="roomform-submitbtn"
+        >
           Submit
         </button>
       </form>
