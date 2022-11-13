@@ -144,7 +144,7 @@ const PlantGallery = (props) => {
             return (
               <li className="rooms">
                 <p className="room-text">{galleryItem.room}</p>
-                <p>{galleryItem.plantName}</p>
+                <p className="plant-name">{galleryItem.plantName}</p>
                 <img src={galleryItem.plantImage} className="sampleplant-img" />
               </li>
             )
