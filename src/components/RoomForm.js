@@ -1,21 +1,30 @@
 import { useState, useEffect } from 'react'
+// import { useParams } from 'react-router-dom'
 
-const Room = () => {
-  const [currentSubmitValue, setSubmitValue] = useState()
+const RoomForm = (props) => {
   const [currentRoomInputValue, setRoomInputValue] = useState()
   const [currentImageInputValue, setImageInputValue] = useState()
   const [currentNameInputValue, setNameInputValue] = useState()
   const [currentTextInputValue, setTextInputValue] = useState()
 
-  const submitHandleClick = (e) => {
+  const submitHandleClick = async (e) => {
     e.preventDefault()
-    console.log(
-      'submit click',
-      currentRoomInputValue,
-      currentImageInputValue,
-      currentNameInputValue,
-      currentTextInputValue
-    )
+    const plantDetails = {
+      room: currentRoomInputValue,
+      image: currentImageInputValue,
+      plantName: currentNameInputValue,
+      plantDetails: currentTextInputValue
+    }
+
+    console.log('new plant ', plantDetails)
+
+    // let response = await axios.post('http://localhost:3001/formDetails', {
+    //   plantDetails
+    // })
+
+    props.afterPlantCreation(plantDetails)
+
+    //clear the form
     setRoomInputValue('')
     setImageInputValue('')
     setNameInputValue('')
@@ -88,4 +97,4 @@ const Room = () => {
   )
 }
 
-export default Room
+export default RoomForm

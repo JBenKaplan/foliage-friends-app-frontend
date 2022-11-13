@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react'
-// // import axios from 'axios'
-// import { useParams } from 'react-router-dom'
 // import { useNavigate } from 'react-router-dom'
 import plantImage from './sampleplant.png'
-import Room from './Room.js'
+import RoomForm from './RoomForm.js'
 
 const mockData = [
   {
@@ -100,7 +98,7 @@ const PlantGallery = (props) => {
   const [currentAddPlantState, setAddPlantState] = useState(false)
   const [currentAllPlants, setAllPlants] = useState(mockData)
 
-  const addPlantHandleClick = (e) => {
+  const addPlantHandleClick = async (e) => {
     if (currentAddPlantState === false) {
       setAddPlantState(true)
     } else {
@@ -113,6 +111,16 @@ const PlantGallery = (props) => {
     panelDisplay = ''
   }
 
+  useEffect(() => {
+    //fetch api
+    const getAllPlants = async () => {
+      //axios.get()
+      // update currentAllPlants
+      //setAllPlants
+    }
+    getAllPlants()
+  })
+
   return (
     <div className="main-container">
       <div className="roomlist-container">
@@ -122,7 +130,13 @@ const PlantGallery = (props) => {
           </button>
         </div>
         <div className={`dropdown-panel ${panelDisplay}`}>
-          <Room />
+          <RoomForm
+            afterPlantCreation={(plantObj) => {
+              console.log('plant is now created', plantObj)
+              const newPlants = [...currentAllPlants, plantObj]
+              setAllPlants(newPlants)
+            }}
+          />
         </div>
 
         <ul className="li-container">
@@ -130,6 +144,7 @@ const PlantGallery = (props) => {
             return (
               <li className="rooms">
                 <p className="room-text">{galleryItem.room}</p>
+                <p>{galleryItem.plantName}</p>
                 <img src={galleryItem.plantImage} className="sampleplant-img" />
               </li>
             )

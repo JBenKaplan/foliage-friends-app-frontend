@@ -155,7 +155,6 @@ padding: 0;
 .mainroom-container {
 width: 700px;
 height: 500px;
-
 border: 1px solid rgba(121, 143, 132, 0.596);
 margin: 30px auto;
 display: flex;
