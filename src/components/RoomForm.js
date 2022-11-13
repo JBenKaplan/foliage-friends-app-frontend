@@ -16,7 +16,7 @@ const RoomForm = (props) => {
       plantDetails: currentTextInputValue
     }
 
-    console.log('new plant h', plantDetails)
+    console.log('new plant test', plantDetails)
 
     // let response = await axios.post('http://localhost:3001/formDetails', {
     //   plantDetails
