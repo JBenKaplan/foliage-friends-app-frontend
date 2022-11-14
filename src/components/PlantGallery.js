@@ -38,7 +38,7 @@ const PlantGallery = ({ user }) => {
     getAllPlants()
   }, [])
 
-  return (
+  return user ? (
     <div className="main-container">
       <div className="roomlist-container">
         <div className="addplantbtn-container">
@@ -66,13 +66,12 @@ const PlantGallery = ({ user }) => {
         </ul>
       </div>
     </div>
+  ) : (
+    <div className="protected">
+      <h3>Oops! You must be signed in to do that!</h3>
+      <button onClick={() => navigate('/login')}>Sign In</button>
+    </div>
   )
-  // ) : (
-  //   <div className="protected">
-  //     <h3>Oops! You must be signed in to do that!</h3>
-  //     <button onClick={() => navigate('/login')}>Sign In</button>
-  //   </div>
-  // )
 }
 
 export default PlantGallery
