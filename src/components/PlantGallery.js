@@ -46,11 +46,11 @@ const PlantGallery = ({ user }) => {
     <div className="main-container">
       <div className="roomlist-container">
         <div className="addplantbtn-container">
-          <button onClick={handleClick} className="addroom-btn">
-            ADD Room
+          <button onClick={handleClick} className="addplant-btn">
+            Add Room
           </button>
           <button onClick={handleClick} className="addplant-btn">
-            ADD PLANT
+            Add Plant
           </button>
         </div>
         <div className={`dropdown-panel-room ${panelDisplay}`}>
@@ -60,11 +60,11 @@ const PlantGallery = ({ user }) => {
           <PlantForm user={user} />
         </div>
         <ul className="li-container">
-          {currentAllPlants.map((galleryItem) => (
-            <li className="rooms">
-              <p className="room-text">{galleryItem.room}</p>
-              <p className="plant-name">{galleryItem.name}</p>
-              <img src={galleryItem.image} className="sampleplant-img" />
+          {currentAllPlants.map((plant) => (
+            <li className="rooms" key={plant.id}>
+              <p className="room-text">{plant.room}</p>
+              <p className="plant-name">{plant.name}</p>
+              <img src={plant.image} className="sampleplant-img" />
             </li>
           ))}
         </ul>
