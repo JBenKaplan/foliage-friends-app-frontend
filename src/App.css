@@ -1,16 +1,24 @@
 body {
   background-image: url('./components/landingimage.png');
   background-size: cover;
-  
 }
 
 .App {
   text-align: center;
 }
 
+Nav {
+  display: flex;
+  justify-content: space-around;
+}
+
+.protected {
+  text-align: center;
+}
+
 .header {
   text-align: center;
-  color:#A2C3A4;
+  color: #a2c3a4;
   text-decoration-line: none;
   font-family: 'Playfair';
   color: rgb(177, 172, 156);
@@ -22,13 +30,13 @@ body {
   width: 600px;
   margin: 150px auto;
   padding: 50px 20px;
-  background-color: #A2C3A4;
+  background-color: #a2c3a4;
 }
-.signup-input, .signup-btn {
+.signup-input,
+.signup-btn {
   margin: 10px auto;
   padding: 5px 50px;
 }
-
 
 .login-container {
   text-align: center;
@@ -43,16 +51,15 @@ body {
 .signup-btn {
   padding: 8px 20px;
   margin: auto;
-  
 }
 
 .signin-container {
   display: flex;
   flex-direction: column;
   margin: 50px auto;
- 
+
   padding: 30px 50px;
-  background-color: #A2C3A4;
+  background-color: #a2c3a4;
 }
 
 .signin-input {
@@ -62,13 +69,12 @@ body {
 
 .submit-btn {
   padding: 8px 20px;
-  margin: 10px auto; 
+  margin: 10px auto;
 }
 
 .signin-text {
   color: #768076;
 }
-
 
 .landing-container {
   text-align: center;
@@ -79,37 +85,34 @@ body {
   padding: 15px 30px;
   font-size: 15px;
   font-family: 'Playfair';
-  opacity: .5;
+  opacity: 0.5;
 }
 
 .addplant-btn {
   display: flex;
 }
 
-
 .addplant-btn {
   margin: 20px auto;
   text-align: center;
   padding: 10px 15px;
-  opacity: .4;
-  color:rgb(81, 78, 71);
+  opacity: 0.4;
+  color: rgb(81, 78, 71);
   font-weight: bold;
   font-family: 'Playfair';
 }
 
 .li-container {
-display: flex;
-flex-wrap: wrap;
-margin: auto 8px;
-padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto 8px;
+  padding: 0;
 }
 
-
 .rooms {
-
   margin: 20px auto;
   list-style: none;
-  color:#768076;
+  color: #768076;
 }
 
 .room-text {
@@ -121,7 +124,6 @@ padding: 0;
   font-weight: 300;
   color: rgb(89, 86, 86);
 }
-
 
 .plant-name {
   margin: 20px auto;
@@ -141,7 +143,7 @@ padding: 0;
 .main-container {
   display: flex;
   justify-content: center;
-  background-color: #A2C3A4 ;
+  background-color: #a2c3a4;
 }
 .roomlist-container {
   margin: auto 20px;
@@ -153,7 +155,7 @@ padding: 0;
 }
 
 .addplantbtn-container {
- margin: 30px auto;
+  margin: 30px auto;
 }
 
 .form-container {
@@ -164,16 +166,18 @@ padding: 0;
 }
 
 .mainroom-container {
-width: 700px;
-height: 500px;
-border: 1px solid rgba(121, 143, 132, 0.596);
-margin: 30px auto;
-display: flex;
-justify-content: center;
-background-color: #bccfbe;
+  width: 700px;
+  height: 500px;
+  border: 1px solid rgba(121, 143, 132, 0.596);
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+  background-color: #bccfbe;
 }
 
-#room-input, #plantname-input, #description-input {
+#room-input,
+#plantname-input,
+#description-input {
   font-family: 'Playfair';
   padding: 10px 15px;
   margin: 6px 30px;
@@ -181,10 +185,10 @@ background-color: #bccfbe;
 }
 
 #image-input {
- font-family: 'Playfair';
- padding: 10px 5px;
- margin: 6px 30px;
- text-align: center;
+  font-family: 'Playfair';
+  padding: 10px 5px;
+  margin: 6px 30px;
+  text-align: center;
 }
 
 #image-input {
@@ -200,11 +204,9 @@ background-color: #bccfbe;
   color: rgba(108, 123, 116, 0.596);
 }
 
-
 /* #description-input {
 
 } */
-
 
 .dropdown-panel {
   display: block;
@@ -213,4 +215,3 @@ background-color: #bccfbe;
 .hide {
   display: none;
 }
-
