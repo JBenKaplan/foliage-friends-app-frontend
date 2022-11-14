@@ -35,11 +35,11 @@ const PlantForm = ({ user, getAllPlants }) => {
 
   //useeffect get rooms
   useEffect(() => {
-    const getStuff = async () => {
+    const RoomList = async () => {
       let roomslist = await GetRooms(user)
       setRooms(roomslist)
     }
-    getStuff()
+    RoomList()
   }, [])
 
   return (
@@ -62,6 +62,7 @@ const PlantForm = ({ user, getAllPlants }) => {
         <input
           onChange={handleChange}
           // onClick={}
+          accept="image/*"
           type="file"
           src="./uploadimage.png"
           value={plantFormValues.image}
