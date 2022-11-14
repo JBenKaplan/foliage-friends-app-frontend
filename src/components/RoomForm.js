@@ -1,88 +1,75 @@
 import { useState, useEffect } from 'react'
+import axios from 'axios'
+import Client from '../services/api'
 // import { useParams } from 'react-router-dom'
 
 const RoomForm = (props) => {
-  const [currentRoomInputValue, setRoomInputValue] = useState()
-  const [currentImageInputValue, setImageInputValue] = useState()
-  const [currentNameInputValue, setNameInputValue] = useState()
-  const [currentTextInputValue, setTextInputValue] = useState()
+  const plantInfoForm = {
+    room: '',
+    image: '',
+    name: '',
+    details: ''
+  }
+  const [plantDetails, setPlantDetails] = useState({})
 
   const submitHandleClick = async (e) => {
     e.preventDefault()
-    const plantDetails = {
-      room: currentRoomInputValue,
-      image: currentImageInputValue,
-      plantName: currentNameInputValue,
-      plantDetails: currentTextInputValue
+    try {
+      console.log(plantDetails)
+      let res = await Client.post('/plants/create', {
+        plantDetails
+      })
+      console.log(res)
+    } catch (error) {
+      throw error
     }
 
-    console.log('new plant test', plantDetails)
-
-    // let response = await axios.post('http://localhost:3001/formDetails', {
-    //   plantDetails
-    // })
-
     props.afterPlantCreation(plantDetails)
-
-    //clear the form
-    setRoomInputValue('')
-    setImageInputValue('')
-    setNameInputValue('')
-    setTextInputValue('')
+    setPlantDetails(plantInfoForm)
   }
 
-  const roomHandleChange = (e) => {
-    setRoomInputValue(e.target.value)
-  }
-
-  const imageHandleChange = (e) => {
-    setImageInputValue(e.target.value)
-  }
-
-  const nameHandleChange = (e) => {
-    setNameInputValue(e.target.value)
-  }
-
-  const textHandleChange = (e) => {
-    setTextInputValue(e.target.value)
-  }
+  const handleChange = (e) => [setPlantDetails({ ...plantInfoForm })]
 
   return (
     <div className="mainroom-container">
       <form className="form-container">
         <input
-          onChange={roomHandleChange}
+          onChange={handleChange}
           type="text"
           placeholder="Room"
-          value={currentRoomInputValue}
+          value={plantDetails.room}
           id="room-input"
+          name="room"
         ></input>
 
         <label>
           <input
-            onChange={imageHandleChange}
+            onChange={handleChange}
             type="file"
             src="./uploadimage.png"
-            value={currentImageInputValue}
+            value={plantDetails.image}
             placeholder="upload image"
             id="image-input"
+            name="image"
           ></input>
         </label>
 
         <input
           type="text"
-          onChange={nameHandleChange}
-          value={currentNameInputValue}
+          onChange={handleChange}
+          value={plantDetails.name}
           placeholder="Plant name"
           id="plantname-input"
+          name="name"
         ></input>
 
         <textarea
-          onChange={textHandleChange}
+          onChange={handleChange}
           type="text"
-          value={currentTextInputValue}
+          value={plantDetails.details}
           placeholder="Plant description"
           id="description-input"
+          name="details"
         ></textarea>
         <button
           onClick={submitHandleClick}
