@@ -33,11 +33,11 @@ const PlantForm = ({ user }) => {
 
   //useeffect get rooms
   useEffect(() => {
-    const getStuff = async () => {
+    const RoomList = async () => {
       let roomslist = await GetRooms(user)
       setRooms(roomslist)
     }
-    getStuff()
+    RoomList()
   }, [])
 
   return (
@@ -46,13 +46,13 @@ const PlantForm = ({ user }) => {
         <select
           onChange={handleChange}
           name="roomId"
-          value={plantFormValues.room}
+          value={plantFormValues.roomId}
         >
           <option value="" disabled>
             - Select Room -
           </option>
           {rooms.map((room) => (
-            <option name="roomId" value={room.name} key={room.id}>
+            <option name="roomId" value={room.id} key={room.id}>
               {room.name}
             </option>
           ))}
@@ -60,6 +60,7 @@ const PlantForm = ({ user }) => {
         <input
           onChange={handleChange}
           // onClick={}
+          accept="image/*"
           type="file"
           src="./uploadimage.png"
           value={plantFormValues.image}

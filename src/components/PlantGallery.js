@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import PlantForm from './PlantForm.js'
 import Client from '../services/api'
 import RoomForm from './RoomForm.js'
+import { GetRooms } from '../services/Auth.js'
 
 const PlantGallery = ({ user }) => {
   const formValues = {
@@ -13,59 +14,63 @@ const PlantGallery = ({ user }) => {
   }
   let navigate = useNavigate()
 
-  const [currentAddPlantState, setAddPlantState] = useState(false)
-  const [currentAddRoomState, setAddRoomState] = useState(false)
+  // const [currentAddPlantState, setAddPlantState] = useState(false)
+  // const [currentAddRoomState, setAddRoomState] = useState(false)
   const [currentAllPlants, setAllPlants] = useState([])
+  const [rooms, setRooms] = useState([])
 
-  const handleClick = async (e) => {
-    if (currentAddPlantState === false || currentAddRoomState === true) {
-      setAddPlantState(true)
-      setAddRoomState(false)
-    } else {
-      setAddPlantState(false)
-      setAddRoomState(true)
-    }
-  }
+  // const handleClick = async (e) => {
+  //   if (currentAddPlantState === false || currentAddRoomState === true) {
+  //     setAddPlantState(true)
+  //     setAddRoomState(false)
+  //   } else {
+  //     setAddPlantState(false)
+  //     setAddRoomState(true)
+  //   }
+  // }
 
-  let panelDisplay = 'hide'
-  if (currentAddPlantState === true) {
-    panelDisplay = ''
-  }
+  let panelDisplay = 'show'
+  // if (currentAddPlantState === true) {
+  //   panelDisplay = ''
+  // }
 
   const getAllPlants = async (data) => {
     const res = await Client.get('/users/plants', data)
-    console.log(res.data)
     setAllPlants(res.data)
+  }
+
+  const RoomList = async () => {
+    let roomslist = await GetRooms(user)
+    setRooms(roomslist)
   }
 
   useEffect(() => {
     getAllPlants()
+    RoomList()
   }, [])
 
   return user ? (
     <div className="main-container">
       <div className="roomlist-container">
         <div className="addplantbtn-container">
-          <button onClick={handleClick} className="addplant-btn">
-            Add Room
-          </button>
-          <button onClick={handleClick} className="addplant-btn">
-            Add Plant
-          </button>
+          <button className="addplant-btn">Add Room</button>
+          <button className="addplant-btn">Add Plant</button>
         </div>
-        <div className={`dropdown-panel-room ${panelDisplay}`}>
+        <div className={`dropdown-panel ${panelDisplay}`}>
           <RoomForm user={user} />
-        </div>
-        <div className={`dropdown-panel-plant ${panelDisplay}`}>
-          <PlantForm user={user} />
+          <PlantForm user={user} rooms={rooms} getRooms={RoomList} />
         </div>
         <ul className="li-container">
-          {currentAllPlants.map((plant) => (
-            <li className="rooms" key={plant.id}>
-              <p className="room-text">{plant.room}</p>
-              <p className="plant-name">{plant.name}</p>
-              <img src={plant.image} className="sampleplant-img" />
-            </li>
+          {rooms.map((room) => (
+            <div key={room.name}>
+              {room.name}
+              {currentAllPlants.map((plant) => (
+                <li className="rooms" key={plant.id}>
+                  <p className="plant-name">{plant.name}</p>
+                  <img src={plant.image} className="sampleplant-img" />
+                </li>
+              ))}
+            </div>
           ))}
         </ul>
       </div>
