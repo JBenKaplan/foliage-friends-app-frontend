@@ -29,9 +29,10 @@ export const CheckSession = async () => {
   }
 }
 
-export const GetRooms = async () => {
+export const GetRooms = async (req) => {
   try {
-    const res = await Client.get('/rooms/userRooms')
+    // const userId = req.id
+    const res = await Client.get(`/rooms/${req.id}`)
     return res.data
   } catch (error) {
     throw error

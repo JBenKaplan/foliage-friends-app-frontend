@@ -2,29 +2,24 @@ import { useState } from 'react'
 import Client from '../services/api'
 // import { useParams } from 'react-router-dom'
 
-const RoomForm = (props, { user }) => {
+const RoomForm = ({ user }) => {
   const formValues = {
     name: '',
-    userId: user //DONT DO THIS! ADD USERID BY AUTH!! CHANGE DAMN YOU??
+    userId: user.id //ADD USERID BY AUTH!! CHANGE DAMN YOU??
   }
 
-  const [room, setRoom] = useState({})
+  const [room, setRoom] = useState({ formValues })
 
   const submitHandleClick = async (e) => {
     e.preventDefault()
     try {
-      console.log(room)
       let res = await Client.post('/rooms/create', {
         room
       })
-      console.log(res)
       setRoom(formValues)
     } catch (error) {
       throw error
     }
-
-    props.afterPlantCreation(room)
-    setRoom(formValues)
   }
 
   const handleChange = (e) => {
