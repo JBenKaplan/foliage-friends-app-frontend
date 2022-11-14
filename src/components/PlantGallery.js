@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import RoomForm from './RoomForm.js'
+import PlantForm from './PlantForm.js'
 import Client from '../services/api'
+import RoomForm from './RoomForm.js'
 
 const PlantGallery = ({ user }) => {
   const formValues = {
@@ -13,13 +14,16 @@ const PlantGallery = ({ user }) => {
   let navigate = useNavigate()
 
   const [currentAddPlantState, setAddPlantState] = useState(false)
+  const [currentAddRoomState, setAddRoomState] = useState(false)
   const [currentAllPlants, setAllPlants] = useState([])
 
-  const addPlantHandleClick = async (e) => {
-    if (currentAddPlantState === false) {
+  const handleClick = async (e) => {
+    if (currentAddPlantState === false || currentAddRoomState === true) {
       setAddPlantState(true)
+      setAddRoomState(false)
     } else {
       setAddPlantState(false)
+      setAddRoomState(true)
     }
   }
 
@@ -42,18 +46,18 @@ const PlantGallery = ({ user }) => {
     <div className="main-container">
       <div className="roomlist-container">
         <div className="addplantbtn-container">
-          <button onClick={addPlantHandleClick} className="addplant-btn">
+          <button onClick={handleClick} className="addroom-btn">
+            ADD Room
+          </button>
+          <button onClick={handleClick} className="addplant-btn">
             ADD PLANT
           </button>
         </div>
-        <div className={`dropdown-panel ${panelDisplay}`}>
-          <RoomForm
-            afterPlantCreation={(plantObj) => {
-              console.log('plant is now created', plantObj)
-              const newPlants = [...currentAllPlants, plantObj]
-              setAllPlants(newPlants)
-            }}
-          />
+        <div className={`dropdown-panel-room ${panelDisplay}`}>
+          <RoomForm user={user} />
+        </div>
+        <div className={`dropdown-panel-plant ${panelDisplay}`}>
+          <PlantForm user={user} />
         </div>
         <ul className="li-container">
           {currentAllPlants.map((galleryItem) => (
