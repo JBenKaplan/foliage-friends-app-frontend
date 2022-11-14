@@ -22,6 +22,7 @@ const App = () => {
     if (token) {
       checkToken()
     }
+    console.log(token)
   }, [])
 
   const handleLogOut = () => {
@@ -38,7 +39,7 @@ const App = () => {
         <Route path="/" element={<Landing />} />
         <Route path="/login" element={<LogIn setUser={setUser} />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/plantgallery" element={<PlantGallery />} />
+        <Route path="/plantgallery" element={<PlantGallery user={user} />} />
       </Routes>
     </div>
   )
