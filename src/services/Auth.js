@@ -28,3 +28,12 @@ export const CheckSession = async () => {
     throw error
   }
 }
+
+export const GetRooms = async () => {
+  try {
+    const res = await Client.get('/rooms/userRooms')
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
