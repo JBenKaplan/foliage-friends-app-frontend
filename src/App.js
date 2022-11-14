@@ -22,7 +22,6 @@ const App = () => {
     if (token) {
       checkToken()
     }
-    console.log(token)
   }, [])
 
   const handleLogOut = () => {

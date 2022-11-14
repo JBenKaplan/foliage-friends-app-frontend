@@ -5,14 +5,15 @@ import { GetRooms } from '../services/Auth'
 
 const PlantForm = ({ user }) => {
   const formValues = {
-    room: '',
     image: '',
     name: '',
-    details: ''
+    details: '',
+    userId: user.id,
+    roomId: ''
   }
 
   const [rooms, setRooms] = useState([])
-  const [plantFormValues, setPlantFormValues] = useState({})
+  const [plantFormValues, setPlantFormValues] = useState(formValues)
 
   const submitHandleClick = async (e) => {
     e.preventDefault()
@@ -20,6 +21,7 @@ const PlantForm = ({ user }) => {
       let res = await Client.post('/plants/create', {
         plantFormValues
       })
+      console.log(res)
     } catch (error) {
       throw error
     }
@@ -41,19 +43,20 @@ const PlantForm = ({ user }) => {
   return (
     <div className="mainroom-container">
       <form className="form-container">
-        <label className="roomSelect" htmlFor="Select Room">
-          Select Room:
-          <select>
-            <option value="" disabled>
-              {''} - Select Room -{''}{' '}
+        <select
+          onChange={handleChange}
+          name="roomId"
+          value={plantFormValues.room}
+        >
+          <option value="" disabled>
+            - Select Room -
+          </option>
+          {rooms.map((room) => (
+            <option name="roomId" value={room.name} key={room.id}>
+              {room.name}
             </option>
-            {rooms.map((room) => (
-              <option value={room.name} key={room.id}>
-                {room.name}
-              </option>
-            ))}
-          </select>
-        </label>
+          ))}
+        </select>
         <input
           onChange={handleChange}
           // onClick={}
