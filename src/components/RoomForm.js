@@ -1,34 +1,35 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+import { useState } from 'react'
 import Client from '../services/api'
 // import { useParams } from 'react-router-dom'
 
-const RoomForm = (props) => {
-  const plantInfoForm = {
-    room: '',
-    image: '',
+const RoomForm = (props, { user }) => {
+  const formValues = {
     name: '',
-    details: ''
+    userId: user //DONT DO THIS! ADD USERID BY AUTH!! CHANGE DAMN YOU??
   }
-  const [plantDetails, setPlantDetails] = useState({})
+
+  const [room, setRoom] = useState({})
 
   const submitHandleClick = async (e) => {
     e.preventDefault()
     try {
-      console.log(plantDetails)
-      let res = await Client.post('/plants/create', {
-        plantDetails
+      console.log(room)
+      let res = await Client.post('/rooms/create', {
+        room
       })
       console.log(res)
+      setRoom(formValues)
     } catch (error) {
       throw error
     }
 
-    props.afterPlantCreation(plantDetails)
-    setPlantDetails(plantInfoForm)
+    props.afterPlantCreation(room)
+    setRoom(formValues)
   }
 
-  const handleChange = (e) => [setPlantDetails({ ...plantInfoForm })]
+  const handleChange = (e) => {
+    setRoom({ ...formValues, [e.target.name]: e.target.value })
+  }
 
   return (
     <div className="mainroom-container">
@@ -37,40 +38,10 @@ const RoomForm = (props) => {
           onChange={handleChange}
           type="text"
           placeholder="Room"
-          value={plantDetails.room}
+          value={room.name}
           id="room-input"
-          name="room"
-        ></input>
-
-        <label>
-          <input
-            onChange={handleChange}
-            type="file"
-            src="./uploadimage.png"
-            value={plantDetails.image}
-            placeholder="upload image"
-            id="image-input"
-            name="image"
-          ></input>
-        </label>
-
-        <input
-          type="text"
-          onChange={handleChange}
-          value={plantDetails.name}
-          placeholder="Plant name"
-          id="plantname-input"
           name="name"
         ></input>
-
-        <textarea
-          onChange={handleChange}
-          type="text"
-          value={plantDetails.details}
-          placeholder="Plant description"
-          id="description-input"
-          name="details"
-        ></textarea>
         <button
           onClick={submitHandleClick}
           type="submit"
