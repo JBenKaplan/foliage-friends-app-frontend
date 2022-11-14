@@ -17,7 +17,6 @@ const PlantForm = ({ user }) => {
   const submitHandleClick = async (e) => {
     e.preventDefault()
     try {
-      console.log(plantFormValues)
       let res = await Client.post('/plants/create', {
         plantFormValues
       })
@@ -33,8 +32,7 @@ const PlantForm = ({ user }) => {
   //useeffect get rooms
   useEffect(() => {
     const getStuff = async () => {
-      let roomslist = await GetRooms()
-      console.log(roomslist)
+      let roomslist = await GetRooms(user)
       setRooms(roomslist)
     }
     getStuff()
@@ -43,15 +41,19 @@ const PlantForm = ({ user }) => {
   return (
     <div className="mainroom-container">
       <form className="form-container">
-        <option value="" disabled>
-          {''} - Select Room -{''}{' '}
-        </option>
-        {rooms.map((room) => (
-          <option value={room._id} key={room._id}>
-            {room.name}
-          </option>
-        ))}
-
+        <label className="roomSelect" htmlFor="Select Room">
+          Select Room:
+          <select>
+            <option value="" disabled>
+              {''} - Select Room -{''}{' '}
+            </option>
+            {rooms.map((room) => (
+              <option value={room.name} key={room.id}>
+                {room.name}
+              </option>
+            ))}
+          </select>
+        </label>
         <input
           onChange={handleChange}
           // onClick={}
