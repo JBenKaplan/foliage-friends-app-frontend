@@ -1,7 +1,6 @@
 body {
   background-image: url('./components/landingimage.png');
   background-size: cover;
-  
 }
 
 .App {
@@ -41,32 +40,45 @@ body {
 }
 
 .signup-btn {
+  font-family: 'Playfair';
+  font-weight:500;
+  font-size: 18px;
   padding: 8px 20px;
   margin: auto;
-  
+  background-color: #a2c3a471;
+  border: none;
+  color:rgb(73, 70, 70);
 }
 
 .signin-container {
   display: flex;
   flex-direction: column;
   margin: 50px auto;
- 
   padding: 30px 50px;
-  background-color: #A2C3A4;
+  background-color: #a2c3a49c;
 }
 
 .signin-input {
   margin: 8px auto;
   padding: 8px 30px;
+  color:rgb(73, 70, 70);
 }
 
 .submit-btn {
   padding: 8px 20px;
   margin: 10px auto; 
+  background-color: rgba(255, 255, 255, 0.431);
+  border: none;
+  font-family: 'Playfair';
+  color:rgb(73, 70, 70);
+  font-size: 16px;
 }
 
 .signin-text {
-  color: #768076;
+  color:rgb(73, 70, 70);
+  font-family: 'Playfair';
+  font-size: 18px;
+  font-weight: 300;
 }
 
 

@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+
 // import { useParams } from 'react-router-dom'
 
 const RoomForm = (props) => {
@@ -35,6 +36,10 @@ const RoomForm = (props) => {
     setRoomInputValue(e.target.value)
   }
 
+  // useEffect(() => {
+  //   imageHandleChange()
+  // }, [])
+
   const imageHandleChange = (e) => {
     setImageInputValue(e.target.value)
   }
@@ -62,7 +67,7 @@ const RoomForm = (props) => {
           <input
             onChange={imageHandleChange}
             type="file"
-            src="./uploadimage.png"
+            accept="image/*"
             value={currentImageInputValue}
             placeholder="upload image"
             id="image-input"
