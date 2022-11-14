@@ -3,7 +3,7 @@ import Client from '../services/api'
 import { GetRooms } from '../services/Auth'
 // import { useParams } from 'react-router-dom'
 
-const PlantForm = ({ user }) => {
+const PlantForm = ({ user, getAllPlants }) => {
   const formValues = {
     image: '',
     name: '',
@@ -21,6 +21,8 @@ const PlantForm = ({ user }) => {
       let res = await Client.post('/plants/create', {
         plantFormValues
       })
+      setPlantFormValues(formValues)
+      getAllPlants()
       console.log(res)
     } catch (error) {
       throw error
@@ -46,13 +48,13 @@ const PlantForm = ({ user }) => {
         <select
           onChange={handleChange}
           name="roomId"
-          value={plantFormValues.room}
+          value={plantFormValues.roomId}
         >
           <option value="" disabled>
             - Select Room -
           </option>
           {rooms.map((room) => (
-            <option name="roomId" value={room.name} key={room.id}>
+            <option value={room.id} key={room.id}>
               {room.name}
             </option>
           ))}

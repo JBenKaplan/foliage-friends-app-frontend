@@ -57,7 +57,7 @@ const PlantGallery = ({ user }) => {
           <RoomForm user={user} />
         </div>
         <div className={`dropdown-panel-plant ${panelDisplay}`}>
-          <PlantForm user={user} />
+          <PlantForm user={user} getAllPlants={getAllPlants} />
         </div>
         <ul className="li-container">
           {currentAllPlants.map((plant) => (
