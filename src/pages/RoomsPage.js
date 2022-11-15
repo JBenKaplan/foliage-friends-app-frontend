@@ -20,7 +20,7 @@ const RoomsPage = ({ user }) => {
     ) {
       try {
         console.log(req)
-        await Client.delete(`/rooms/${req}`)
+        await Client.delete(`/rooms/room/${req}`)
         console.log(`Room removed with id of ${req}`)
         window.location.reload()
       } catch (err) {

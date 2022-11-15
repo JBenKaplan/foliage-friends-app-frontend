@@ -27,7 +27,7 @@ const RoomForm = ({ user }) => {
   const submitHandleClick = async (e) => {
     e.preventDefault()
     try {
-      await Client.put(`/rooms/${room.id}`, {
+      await Client.put(`/rooms/create`, {
         roomForm
       })
       navigate(-1)
