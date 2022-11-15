@@ -222,3 +222,12 @@ Nav {
 .hide {
   display: none;
 }
+
+
+.rooms-container {
+  display: flex;
+}
+.rooms {
+  flex-direction: column;
+ flex-wrap: wrap;
+}
