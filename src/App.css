@@ -171,6 +171,7 @@ Nav {
   display: flex;
   justify-content: center;
   background-color: #a2c3a4;
+  margin: 0 auto;
 }
 .roomlist-container {
   margin: auto 20px;
@@ -185,21 +186,36 @@ Nav {
   margin: 30px auto;
 }
 
-.form-container {
+.form-container, .roomform-container {
   display: flex;
   flex-direction: column;
   width: 300px;
+  margin: 10px auto;
+}
+
+.mainroom-formcontainer {
+  width: 700px;
+  height: 150px;
   margin: auto auto;
+  background-color: #bccfbe;
+}
+.roomform-text {
+  margin: 10px auto;
+  font-family: 'Playfair';
+  font-size: 16px;
+  font-weight: 200;
+  color: gray;
 }
 
 .mainroom-container {
   width: 700px;
-  height: 500px;
+  height: 300px;
   border: 1px solid rgba(121, 143, 132, 0.596);
-  margin: 30px auto;
+  margin: 0 auto 30px auto;
   display: flex;
   justify-content: center;
   background-color: #bccfbe;
+  border: none;
 }
 
 #room-input,
