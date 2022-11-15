@@ -17,7 +17,7 @@ const RoomForm = ({ user }) => {
     let id = window.location.href.split('/updateroom/')
     let roomId = parseInt(id[1])
     let changeroom = await Client.get(`/rooms/room/${roomId}`)
-    setRoom(changeroom.data)
+    setRoom(changeroom.data[0])
   }
 
   const handleChange = (e) => {
@@ -27,7 +27,7 @@ const RoomForm = ({ user }) => {
   const submitHandleClick = async (e) => {
     e.preventDefault()
     try {
-      await Client.put(`/rooms/create`, {
+      await Client.put(`/rooms/update`, {
         roomForm
       })
       navigate(-1)
@@ -43,11 +43,11 @@ const RoomForm = ({ user }) => {
   return (
     <div className="mainroom-formcontainer">
       <form className="roomform-container">
-        <h4 className="roomform-text">-Current name: {room.name}-</h4>
+        <h4 className="roomform-text">-Current name: {room?.name}-</h4>
         <input
           onChange={handleChange}
           type="text"
-          placeholder="new name"
+          placeholder="New Name"
           value={roomForm.name}
           id="roomName"
           name="name"
