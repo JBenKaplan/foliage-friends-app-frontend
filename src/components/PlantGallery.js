@@ -16,7 +16,7 @@ const PlantGallery = ({ user }) => {
 
   // const [currentAddPlantState, setAddPlantState] = useState(false)
   // const [currentAddRoomState, setAddRoomState] = useState(false)
-  const [currentAllPlants, setAllPlants] = useState([])
+  const [currentRoomPlants, setAllPlants] = useState([])
   const [rooms, setRooms] = useState([])
 
   // const handleClick = async (e) => {
@@ -34,8 +34,10 @@ const PlantGallery = ({ user }) => {
   //   panelDisplay = ''
   // }
 
-  const getAllPlants = async (data) => {
-    const res = await Client.get('/users/plants', data)
+  const getRoomPlants = async () => {
+    // console.log(room)
+    const res = await Client.get(`/plants/all`)
+    // console.log(res.data)
     setAllPlants(res.data)
   }
 
@@ -45,7 +47,7 @@ const PlantGallery = ({ user }) => {
   }
 
   useEffect(() => {
-    getAllPlants()
+    getRoomPlants()
     RoomList()
   }, [])
 
@@ -60,19 +62,22 @@ const PlantGallery = ({ user }) => {
           <RoomForm user={user} />
           <PlantForm user={user} rooms={rooms} getRooms={RoomList} />
         </div>
-        <ul className="li-container">
-          {rooms.map((room) => (
-            <div key={room.name}>
-              {room.name}
-              {currentAllPlants.map((plant) => (
-                <li className="rooms" key={plant.id}>
-                  <p className="plant-name">{plant.name}</p>
-                  <img src={plant.image} className="sampleplant-img" />
-                </li>
-              ))}
+        <div className="li-container">
+          {rooms.map((roomData) => (
+            <div key={roomData.name}>
+              <h3>{roomData.name}</h3>
+              <div className="plants">
+                {/* {getRoomPlants(roomData)} */}
+                {currentRoomPlants.map((plant) => (
+                  <div className="plantInfo" key={plant.id}>
+                    <p className="plant-name">{plant.name}</p>
+                    <img src={plant.image} className="sampleplant-img" />
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
-        </ul>
+        </div>
       </div>
     </div>
   ) : (
