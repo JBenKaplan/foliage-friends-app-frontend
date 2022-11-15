@@ -1,9 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Client from '../services/api'
 import { useNavigate } from 'react-router'
-// import { useParams } from 'react-router-dom'
 
-const RoomForm = ({ user, afterSubmitClick }) => {
+const RoomForm = ({ user }) => {
   let navigate = useNavigate()
 
   const formValues = {
@@ -11,44 +10,49 @@ const RoomForm = ({ user, afterSubmitClick }) => {
     userId: user.id
   }
 
-  const [room, setRoom] = useState({ formValues })
+  const [roomForm, setRoomForm] = useState(formValues)
+  const [room, setRoom] = useState({})
+
+  const GetRoomInfo = async () => {
+    let id = window.location.href.split('/updateroom/')
+    let roomId = parseInt(id[1])
+    let changeroom = await Client.get(`/rooms/room/${roomId}`)
+    setRoom(changeroom.data)
+  }
+
+  const handleChange = (e) => {
+    setRoomForm({ ...formValues, [e.target.name]: e.target.value })
+  }
 
   const submitHandleClick = async (e) => {
     e.preventDefault()
     try {
-      await Client.post('/rooms/create', {
-        room
+      await Client.put(`/rooms/create`, {
+        roomForm
       })
-      setRoom(formValues)
-      afterSubmitClick(room)
+      navigate(-1)
     } catch (error) {
       throw error
     }
   }
 
-  const handleChange = (e) => {
-    setRoom({ ...formValues, [e.target.name]: e.target.value })
-  }
+  useEffect(() => {
+    GetRoomInfo()
+  }, [user])
 
   return (
     <div className="mainroom-formcontainer">
       <form className="roomform-container">
-        <h4 className="roomform-text">-create new room-</h4>
+        <h4 className="roomform-text">-Current name: {room.name}-</h4>
         <input
           onChange={handleChange}
           type="text"
-          placeholder="Room"
-          value={room.id}
+          placeholder="new name"
+          value={roomForm.name}
           id="roomName"
           name="name"
         ></input>
         <div className="formbtns">
-          <button
-            onClick={() => navigate('/editrooms')}
-            className="roomform-submitbtn"
-          >
-            Edit Rooms
-          </button>
           <button
             onClick={submitHandleClick}
             type="submit"

@@ -8,7 +8,9 @@ body {
 }
 
 Nav {
+  background-color: #768076c9;
   display: flex;
+  align-items: center;
   justify-content: space-around;
 }
 
@@ -127,7 +129,6 @@ Nav {
 .plants {
   border: #004f2d 2px solid;
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
   width: 90vw;
   margin: 0 auto;
@@ -141,11 +142,26 @@ Nav {
 }
 
 .roomList {
+  /* border: black 2px solid; */
   display: flex;
   flex-direction: column;
+  width: 200px;
+}
+
+.rooms-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .roomInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.removeRoomBtn,
+.updateRoomBtn {
   display: flex;
 }
 
@@ -176,15 +192,18 @@ Nav {
   background-color: rgb(226, 230, 219);
 }
 
-.main-container {
+.main-container,
+.rooms-container {
   display: flex;
   justify-content: center;
   background-color: #a2c3a4;
   margin: 0 auto;
 }
+
 .roomlist-container {
   margin: auto 20px;
 }
+
 .apptitle-container {
   display: flex;
   justify-content: center;
@@ -195,9 +214,11 @@ Nav {
   margin: 30px auto;
 }
 
-.form-container, .roomform-container {
+.form-container,
+.roomform-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 300px;
   margin: 10px auto;
 }
@@ -262,29 +283,30 @@ Nav {
   color: rgba(108, 123, 116, 0.596);
 }
 
-/* #description-input {
-
-} */
-
 .dropdown-panel {
   display: block;
+}
+
+.room-panel {
+  display: flex;
+  flex-direction: column;
 }
 
 .hide {
   display: none;
 }
 
-.account-container{
+.account-container {
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
   background-color: #a2c3a4;
 }
-.btn{
+.btn {
   padding: 5px;
   margin: 10px auto;
-  }
+}
 
 .rooms-container {
   display: flex;
