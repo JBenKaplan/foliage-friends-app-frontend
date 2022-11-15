@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Client from '../services/api'
+import { useNavigate } from 'react-router'
 // import { GetRooms } from '../services/Auth'
 // import { useParams } from 'react-router-dom'
 
@@ -14,6 +15,7 @@ const PlantForm = ({ user, getAllPlants, roomList }) => {
 
   // const [rooms, setRooms] = useState(roomList)
   const [plantFormValues, setPlantFormValues] = useState(formValues)
+  const navigate = useNavigate()
 
   const submitHandleClick = async (e) => {
     e.preventDefault()
@@ -42,6 +44,10 @@ const PlantForm = ({ user, getAllPlants, roomList }) => {
   //   RoomList()
   // }, [])
 
+  // const clickImage = (e) => {
+  //   navigate('/plantdetails')
+  // }
+
   return (
     <div className="mainroom-container">
       <form className="form-container">
@@ -61,7 +67,7 @@ const PlantForm = ({ user, getAllPlants, roomList }) => {
         </select>
         <input
           onChange={handleChange}
-          // onClick={}
+          // onClick={clickImage}
           accept="image/*"
           type="file"
           src="./uploadimage.png"

@@ -12,7 +12,7 @@ const PlantGallery = ({ user }) => {
   //   name: '',
   //   details: ''
   // }
-  let navigate = useNavigate()
+  const navigate = useNavigate()
 
   const [currentClickPlantState, setClickPlantState] = useState(false)
 

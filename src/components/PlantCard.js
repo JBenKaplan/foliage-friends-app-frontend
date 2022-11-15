@@ -6,12 +6,14 @@ const PlantCard = (props) => {
   let id = useParams()
 
   const plantCardHandleClick = () => {
-    navigate(`/plantcard/${props.id}`)
+    navigate(`/plantcard/${props.plant.image}`)
   }
   return (
     <div className="plantcard-container">
-      <h1 className="plantname-text">{plantName}</h1>
-      <img src="" className="plantcard-image" />
+      <h1 className="plantname-text">{props.plant.name}</h1>
+      <img className="plantcard-image" src={props.plant.image} />
     </div>
   )
 }
+
+export default PlantCard
