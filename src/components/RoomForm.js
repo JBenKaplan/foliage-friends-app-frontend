@@ -13,7 +13,7 @@ const RoomForm = ({ user, afterSubmitClick }) => {
   const submitHandleClick = async (e) => {
     e.preventDefault()
     try {
-      let res = await Client.post('/rooms/create', {
+      await Client.post('/rooms/create', {
         room
       })
       setRoom(formValues)
@@ -30,7 +30,7 @@ const RoomForm = ({ user, afterSubmitClick }) => {
   return (
     <div className="mainroom-formcontainer">
       <form className="roomform-container">
-        <h4 className="roomform-text"></h4>
+        <h4 className="roomform-text">-create new room-</h4>
         <input
           onChange={handleChange}
           type="text"

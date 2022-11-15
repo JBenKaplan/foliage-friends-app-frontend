@@ -54,7 +54,7 @@ const PlantForm = ({ user, getAllPlants, roomList }) => {
             - Select Room -
           </option>
           {roomList.map((room) => (
-            <option value={room.id} key={room.id}>
+            <option name="roomId" value={room.id} key={room.id}>
               {room.name}
             </option>
           ))}
