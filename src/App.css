@@ -215,3 +215,15 @@ Nav {
 .hide {
   display: none;
 }
+
+.account-container{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #a2c3a4;
+}
+.btn{
+  padding: 5px;
+  margin: 10px;
+}
