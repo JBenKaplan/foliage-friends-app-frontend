@@ -14,16 +14,19 @@ const RoomsPage = ({ user }) => {
   }
 
   const RemoveRoom = async (req) => {
-    // if (confirm('Are you sure you would like to remove this room?') === true) {
-    try {
-      console.log(req)
-      await Client.delete(`/rooms/${req}`)
-      console.log(`Room removed with id of ${req}`)
-      window.location.reload()
-    } catch (err) {
-      throw err
+    if (
+      window.confirm('Are you sure you would like to remove this room?') ===
+      true
+    ) {
+      try {
+        console.log(req)
+        await Client.delete(`/rooms/${req}`)
+        console.log(`Room removed with id of ${req}`)
+        window.location.reload()
+      } catch (err) {
+        throw err
+      }
     }
-    // }
   }
 
   useEffect(() => {
@@ -37,6 +40,12 @@ const RoomsPage = ({ user }) => {
         {rooms.map((room) => (
           <div key={room._id} className="roomInfo">
             <h3>{room.name}</h3>
+            <button
+              className="updateRoomBtn"
+              onClick={() => navigate(`/updateroom/${room.id}`)}
+            >
+              Update
+            </button>
             <button
               className="removeRoomBtn"
               onClick={() => RemoveRoom(room.id)}

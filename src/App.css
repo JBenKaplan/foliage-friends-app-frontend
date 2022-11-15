@@ -8,7 +8,9 @@ body {
 }
 
 Nav {
+  background-color: #768076c9;
   display: flex;
+  align-items: center;
   justify-content: space-around;
 }
 
@@ -127,7 +129,6 @@ Nav {
 .plants {
   border: #004f2d 2px solid;
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
   width: 90vw;
   margin: 0 auto;
@@ -159,9 +160,9 @@ Nav {
   align-items: baseline;
 }
 
-.removeRoomBtn {
-  width: 40px;
-  height: 40px;
+.removeRoomBtn,
+.updateRoomBtn {
+  display: flex;
 }
 
 .room-text {
@@ -282,18 +283,34 @@ Nav {
   color: rgba(108, 123, 116, 0.596);
 }
 
-/* #description-input {
-
-} */
-
 .dropdown-panel {
   display: block;
+}
+
+.room-panel {
+  display: flex;
+  flex-direction: column;
 }
 
 .hide {
   display: none;
 }
 
+.account-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #a2c3a4;
+}
+.btn {
+  padding: 5px;
+  margin: 10px auto;
+}
+
+.rooms-container {
+  display: flex;
+}
 .rooms {
   flex-direction: column;
   flex-wrap: wrap;
