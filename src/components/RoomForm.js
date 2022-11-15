@@ -28,8 +28,9 @@ const RoomForm = ({ user, afterSubmitClick }) => {
   }
 
   return (
-    <div className="mainroom-container">
-      <form className="form-container">
+    <div className="mainroom-formcontainer">
+      <form className="roomform-container">
+        <h4 className="roomform-text"></h4>
         <input
           onChange={handleChange}
           type="text"

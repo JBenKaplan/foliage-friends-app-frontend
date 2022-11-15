@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Client from '../services/api'
-import { GetRooms } from '../services/Auth'
+// import { GetRooms } from '../services/Auth'
 // import { useParams } from 'react-router-dom'
 
 const PlantForm = ({ user, getAllPlants, roomList }) => {

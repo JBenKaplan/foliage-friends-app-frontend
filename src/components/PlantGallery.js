@@ -14,27 +14,25 @@ const PlantGallery = ({ user }) => {
   }
   let navigate = useNavigate()
 
-  // const [currentAddPlantState, setAddPlantState] = useState(false)
-  // const [currentAddRoomState, setAddRoomState] = useState(false)
+  const [currentClickPlantState, setClickPlantState] = useState(false)
+
   const [currentAllPlants, setAllPlants] = useState([])
   const [rooms, setRooms] = useState([])
 
   console.log('rooms ', rooms, currentAllPlants)
 
-  // const handleClick = async (e) => {
-  //   if (currentAddPlantState === false || currentAddRoomState === true) {
-  //     setAddPlantState(true)
-  //     setAddRoomState(false)
-  //   } else {
-  //     setAddPlantState(false)
-  //     setAddRoomState(true)
-  //   }
-  // }
+  const handleClick = async (e) => {
+    if (currentClickPlantState === false) {
+      setClickPlantState(true)
+    } else {
+      setClickPlantState(false)
+    }
+  }
 
-  let panelDisplay = 'show'
-  // if (currentAddPlantState === true) {
-  //   panelDisplay = ''
-  // }
+  let panelDisplay = 'hide'
+  if (currentClickPlantState === true) {
+    panelDisplay = ''
+  }
 
   const getAllPlants = async (data) => {
     const res = await Client.get('/users/plants', data)
@@ -62,8 +60,10 @@ const PlantGallery = ({ user }) => {
     <div className="main-container">
       <div className="roomlist-container">
         <div className="addplantbtn-container">
-          <button className="addplant-btn">Add Room</button>
-          <button className="addplant-btn">Add Plant</button>
+          {/* <button className="addroom-btn">Add Room</button> */}
+          <button onClick={handleClick} className="addplant-btn">
+            Add Plant
+          </button>
         </div>
         <div className={`dropdown-panel ${panelDisplay}`}>
           <RoomForm
