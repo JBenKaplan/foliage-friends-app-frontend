@@ -141,12 +141,27 @@ Nav {
 }
 
 .roomList {
+  /* border: black 2px solid; */
   display: flex;
   flex-direction: column;
+  width: 200px;
+}
+
+.rooms-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .roomInfo {
   display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.removeRoomBtn {
+  width: 40px;
+  height: 40px;
 }
 
 .room-text {
@@ -176,15 +191,18 @@ Nav {
   background-color: rgb(226, 230, 219);
 }
 
-.main-container {
+.main-container,
+.rooms-container {
   display: flex;
   justify-content: center;
   background-color: #a2c3a4;
   margin: 0 auto;
 }
+
 .roomlist-container {
   margin: auto 20px;
 }
+
 .apptitle-container {
   display: flex;
   justify-content: center;
@@ -195,9 +213,11 @@ Nav {
   margin: 30px auto;
 }
 
-.form-container, .roomform-container {
+.form-container,
+.roomform-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 300px;
   margin: 10px auto;
 }
@@ -274,9 +294,6 @@ Nav {
   display: none;
 }
 
-.rooms-container {
-  display: flex;
-}
 .rooms {
   flex-direction: column;
   flex-wrap: wrap;
