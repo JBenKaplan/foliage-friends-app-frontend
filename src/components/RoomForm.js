@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Client from '../services/api'
 // import { useParams } from 'react-router-dom'
 
-const RoomForm = ({ user }) => {
+const RoomForm = ({ user, afterSubmitClick }) => {
   const formValues = {
     name: '',
     userId: user.id //ADD USERID BY AUTH!! CHANGE DAMN YOU??
@@ -13,10 +13,11 @@ const RoomForm = ({ user }) => {
   const submitHandleClick = async (e) => {
     e.preventDefault()
     try {
-      let res = await Client.post('/rooms/create', {
+      await Client.post('/rooms/create', {
         room
       })
       setRoom(formValues)
+      afterSubmitClick(room)
     } catch (error) {
       throw error
     }

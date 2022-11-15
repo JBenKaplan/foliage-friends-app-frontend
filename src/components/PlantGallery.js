@@ -6,18 +6,20 @@ import RoomForm from './RoomForm.js'
 import { GetRooms } from '../services/Auth.js'
 
 const PlantGallery = ({ user }) => {
-  const formValues = {
-    room: '',
-    image: '',
-    name: '',
-    details: ''
-  }
+  // const formValues = {
+  //   room: '',
+  //   image: '',
+  //   name: '',
+  //   details: ''
+  // }
   let navigate = useNavigate()
 
   // const [currentAddPlantState, setAddPlantState] = useState(false)
   // const [currentAddRoomState, setAddRoomState] = useState(false)
-  const [currentRoomPlants, setAllPlants] = useState([])
+  const [currentAllPlants, setAllPlants] = useState([])
   const [rooms, setRooms] = useState([])
+
+  console.log('rooms ', rooms, currentAllPlants)
 
   // const handleClick = async (e) => {
   //   if (currentAddPlantState === false || currentAddRoomState === true) {
@@ -34,7 +36,7 @@ const PlantGallery = ({ user }) => {
   //   panelDisplay = ''
   // }
 
-  const getRoomPlants = async () => {
+  const getAllPlants = async () => {
     // console.log(room)
     const res = await Client.get(`/plants/all`)
     // console.log(res.data)
@@ -47,9 +49,16 @@ const PlantGallery = ({ user }) => {
   }
 
   useEffect(() => {
-    getRoomPlants()
+    getAllPlants()
     RoomList()
-  }, [])
+
+    // initial render the user object is empty
+    // after checkToken api call, the user will have data
+    // before, even if the user has data, useEffect was not being executed again
+    // useEffect dependencies is to ensure that execution will happen again if the user has data
+  }, [user])
+
+  console.log('Rooms ', rooms)
 
   return user ? (
     <div className="main-container">
@@ -59,25 +68,42 @@ const PlantGallery = ({ user }) => {
           <button className="addplant-btn">Add Plant</button>
         </div>
         <div className={`dropdown-panel ${panelDisplay}`}>
-          <RoomForm user={user} />
-          <PlantForm user={user} rooms={rooms} getRooms={RoomList} />
+          <RoomForm
+            user={user}
+            afterSubmitClick={(roomObj) => {
+              // passing data from RoomForm to PlantGallery parent component
+              // check RoomForm line 20
+              setRooms([...rooms, roomObj])
+            }}
+          />
+          <PlantForm
+            user={user}
+            roomList={rooms}
+            getRooms={RoomList}
+            getAllPlants={getAllPlants}
+          />
         </div>
-        <div className="li-container">
-          {rooms.map((roomData) => (
-            <div key={roomData.name}>
-              <h3>{roomData.name}</h3>
+        <ul className="li-container">
+          {rooms.map((room) => (
+            <div key={room._id}>
+              <h3>{room.name}</h3>
               <div className="plants">
-                {/* {getRoomPlants(roomData)} */}
-                {currentRoomPlants.map((plant) => (
-                  <div className="plantInfo" key={plant.id}>
-                    <p className="plant-name">{plant.name}</p>
-                    <img src={plant.image} className="sampleplant-img" />
-                  </div>
-                ))}
+                {currentAllPlants.map((plant) => {
+                  if (parseInt(plant.roomId) === room.id) {
+                    return (
+                      <ul className="rooms-container">
+                        <li className="rooms" key={plant.id}>
+                          <p className="plant-name">{plant.name}</p>
+                          <img src={plant.image} className="sampleplant-img" />
+                        </li>
+                      </ul>
+                    )
+                  }
+                })}
               </div>
             </div>
           ))}
-        </div>
+        </ul>
       </div>
     </div>
   ) : (

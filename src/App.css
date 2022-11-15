@@ -49,6 +49,9 @@ Nav {
 }
 
 .signup-btn {
+  font-family: 'Playfair';
+  font-weight: 500;
+  font-size: 18px;
   padding: 8px 20px;
   margin: auto;
 }
@@ -65,6 +68,7 @@ Nav {
 .signin-input {
   margin: 8px auto;
   padding: 8px 30px;
+  color: rgb(73, 70, 70);
 }
 
 .submit-btn {
@@ -73,7 +77,10 @@ Nav {
 }
 
 .signin-text {
-  color: #768076;
+  color: rgb(73, 70, 70);
+  font-family: 'Playfair';
+  font-size: 18px;
+  font-weight: 300;
 }
 
 .landing-container {
@@ -118,8 +125,9 @@ Nav {
 }
 
 .plants {
+  border: #004f2d 2px solid;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   width: 90vw;
   margin: 0 auto;
@@ -143,6 +151,8 @@ Nav {
 }
 
 .plant-name {
+  color: #004f2d;
+  font-size: 20px;
   margin: 20px auto;
   text-align: center;
   font-family: 'Playfair';
@@ -231,4 +241,12 @@ Nav {
 
 .hide {
   display: none;
+}
+
+.rooms-container {
+  display: flex;
+}
+.rooms {
+  flex-direction: column;
+  flex-wrap: wrap;
 }
