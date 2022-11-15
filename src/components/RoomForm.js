@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import Client from '../services/api'
+import { useNavigate } from 'react-router'
 // import { useParams } from 'react-router-dom'
 
 const RoomForm = ({ user, afterSubmitClick }) => {
+  let navigate = useNavigate()
+
   const formValues = {
     name: '',
     userId: user.id //ADD USERID BY AUTH!! CHANGE DAMN YOU??
@@ -39,14 +42,22 @@ const RoomForm = ({ user, afterSubmitClick }) => {
           id="room-input"
           name="name"
         ></input>
-        <button
-          onClick={submitHandleClick}
-          type="submit"
-          value="value"
-          className="roomform-submitbtn"
-        >
-          Submit
-        </button>
+        <div className="formbtns">
+          <button
+            onClick={() => navigate('/editrooms')}
+            className="roomform-submitbtn"
+          >
+            Edit Rooms
+          </button>
+          <button
+            onClick={submitHandleClick}
+            type="submit"
+            value="value"
+            className="roomform-submitbtn"
+          >
+            Submit
+          </button>
+        </div>
       </form>
     </div>
   )
