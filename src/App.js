@@ -9,6 +9,8 @@ import AppTitle from './components/AppTitle'
 import PlantGallery from './components/PlantGallery'
 import PlantCard from './components/PlantCard'
 import Nav from './components/NavBar'
+import AccountDetails from './pages/AccountDetails'
+import RoomsPage from './pages/RoomsPage'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -41,6 +43,11 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/plantgallery" element={<PlantGallery user={user} />} />
         <Route path="/plantdetails" element={<PlantCard user={user} />} />
+        <Route
+          path="/accountdetails"
+          element={<AccountDetails user={user} handleLogOut={handleLogOut} />}
+        />
+        <Route path="/editrooms" element={<RoomsPage user={user} />} />
       </Routes>
     </div>
   )

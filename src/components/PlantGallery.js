@@ -49,12 +49,15 @@ const PlantGallery = ({ user }) => {
   useEffect(() => {
     getAllPlants()
     RoomList()
-
     // initial render the user object is empty
     // after checkToken api call, the user will have data
     // before, even if the user has data, useEffect was not being executed again
     // useEffect dependencies is to ensure that execution will happen again if the user has data
   }, [user])
+
+  const plantHandleClick = () => {
+    navigate('/plantdetails')
+  }
 
   console.log('Rooms ', rooms)
 
@@ -94,7 +97,11 @@ const PlantGallery = ({ user }) => {
                       <ul className="rooms-container">
                         <li className="rooms" key={plant.id}>
                           <p className="plant-name">{plant.name}</p>
-                          <img src={plant.image} className="sampleplant-img" />
+                          <img
+                            onClick={plantHandleClick}
+                            src={plant.image}
+                            className="sampleplant-img"
+                          />
                         </li>
                       </ul>
                     )

@@ -140,6 +140,15 @@ Nav {
   color: #768076;
 }
 
+.roomList {
+  display: flex;
+  flex-direction: column;
+}
+
+.roomInfo {
+  display: flex;
+}
+
 .room-text {
   font-size: larger;
   font-weight: 600;
@@ -240,10 +249,16 @@ Nav {
   background-color: rgba(242, 250, 246, 0.876);
 }
 
+.formbtns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .roomform-submitbtn {
   font-family: 'Playfair';
+  width: 100px;
   padding: 10px 10px;
-  margin: 5px auto;
+  margin: 5px 5px;
   color: rgba(108, 123, 116, 0.596);
 }
 
@@ -258,6 +273,18 @@ Nav {
 .hide {
   display: none;
 }
+
+.account-container{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #a2c3a4;
+}
+.btn{
+  padding: 5px;
+  margin: 10px auto;
+  }
 
 .rooms-container {
   display: flex;

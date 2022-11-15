@@ -10,8 +10,8 @@ const PlantCard = (props) => {
   }
   return (
     <div className="plantcard-container">
-      <h1 className="plantname-text">{props.plant.name}</h1>
-      <img className="plantcard-image" src={props.plant.image} />
+      <h1 className="plantname-text">Plant Card</h1>
+      <img className="plantcard-image" src="" />
     </div>
   )
 }
