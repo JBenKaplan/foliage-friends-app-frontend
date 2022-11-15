@@ -6,12 +6,12 @@ import RoomForm from './RoomForm.js'
 import { GetRooms } from '../services/Auth.js'
 
 const PlantGallery = ({ user }) => {
-  const formValues = {
-    room: '',
-    image: '',
-    name: '',
-    details: ''
-  }
+  // const formValues = {
+  //   room: '',
+  //   image: '',
+  //   name: '',
+  //   details: ''
+  // }
   let navigate = useNavigate()
 
   // const [currentAddPlantState, setAddPlantState] = useState(false)
@@ -36,8 +36,10 @@ const PlantGallery = ({ user }) => {
   //   panelDisplay = ''
   // }
 
-  const getAllPlants = async (data) => {
-    const res = await Client.get('/users/plants', data)
+  const getAllPlants = async () => {
+    // console.log(room)
+    const res = await Client.get(`/plants/all`)
+    // console.log(res.data)
     setAllPlants(res.data)
   }
 
@@ -83,20 +85,22 @@ const PlantGallery = ({ user }) => {
         </div>
         <ul className="li-container">
           {rooms.map((room) => (
-            <div key={room.name}>
-              {room.name}
-              {currentAllPlants.map((plant) => {
-                if (parseInt(plant.roomId) === room.id) {
-                  return (
-                    <ul className="rooms-container">
-                      <li className="rooms" key={plant.id}>
-                        <p className="plant-name">{plant.name}</p>
-                        <img src={plant.image} className="sampleplant-img" />
-                      </li>
-                    </ul>
-                  )
-                }
-              })}
+            <div key={room._id}>
+              <h3>{room.name}</h3>
+              <div className="plants">
+                {currentAllPlants.map((plant) => {
+                  if (parseInt(plant.roomId) === room.id) {
+                    return (
+                      <ul className="rooms-container">
+                        <li className="rooms" key={plant.id}>
+                          <p className="plant-name">{plant.name}</p>
+                          <img src={plant.image} className="sampleplant-img" />
+                        </li>
+                      </ul>
+                    )
+                  }
+                })}
+              </div>
             </div>
           ))}
         </ul>

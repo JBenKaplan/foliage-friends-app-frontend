@@ -13,7 +13,7 @@ const RoomForm = ({ user, afterSubmitClick }) => {
   const submitHandleClick = async (e) => {
     e.preventDefault()
     try {
-      let res = await Client.post('/rooms/create', {
+      await Client.post('/rooms/create', {
         room
       })
       setRoom(formValues)

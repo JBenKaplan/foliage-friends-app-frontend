@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Client from '../services/api'
-import { GetRooms } from '../services/Auth'
+
 // import { useParams } from 'react-router-dom'
 
 const PlantForm = ({ user, getAllPlants, roomList }) => {
@@ -54,7 +54,7 @@ const PlantForm = ({ user, getAllPlants, roomList }) => {
             - Select Room -
           </option>
           {roomList.map((room) => (
-            <option value={room.id} key={room.id}>
+            <option name="roomId" value={room.id} key={room.id}>
               {room.name}
             </option>
           ))}
