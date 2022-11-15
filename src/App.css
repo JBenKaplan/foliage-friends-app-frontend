@@ -49,6 +49,9 @@ Nav {
 }
 
 .signup-btn {
+  font-family: 'Playfair';
+  font-weight: 500;
+  font-size: 18px;
   padding: 8px 20px;
   margin: auto;
 }
@@ -65,6 +68,7 @@ Nav {
 .signin-input {
   margin: 8px auto;
   padding: 8px 30px;
+  color: rgb(73, 70, 70);
 }
 
 .submit-btn {
@@ -73,7 +77,10 @@ Nav {
 }
 
 .signin-text {
-  color: #768076;
+  color: rgb(73, 70, 70);
+  font-family: 'Playfair';
+  font-size: 18px;
+  font-weight: 300;
 }
 
 .landing-container {
@@ -104,15 +111,42 @@ Nav {
 
 .li-container {
   display: flex;
-  flex-wrap: wrap;
-  margin: auto 8px;
-  padding: 0;
+  justify-content: space-between;
+  align-items: center;
+  width: 90vw;
+  margin: 0 auto;
+  flex-flow: wrap row;
+}
+
+.plantInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.plants {
+  border: #004f2d 2px solid;
+  display: flex;
+  /* justify-content: space-between; */
+  align-items: center;
+  width: 90vw;
+  margin: 0 auto;
+  flex-flow: wrap row;
 }
 
 .rooms {
   margin: 20px auto;
   list-style: none;
   color: #768076;
+}
+
+.roomList {
+  display: flex;
+  flex-direction: column;
+}
+
+.roomInfo {
+  display: flex;
 }
 
 .room-text {
@@ -126,6 +160,8 @@ Nav {
 }
 
 .plant-name {
+  color: #004f2d;
+  font-size: 20px;
   margin: 20px auto;
   text-align: center;
   font-family: 'Playfair';
@@ -144,6 +180,7 @@ Nav {
   display: flex;
   justify-content: center;
   background-color: #a2c3a4;
+  margin: 0 auto;
 }
 .roomlist-container {
   margin: auto 20px;
@@ -158,21 +195,36 @@ Nav {
   margin: 30px auto;
 }
 
-.form-container {
+.form-container, .roomform-container {
   display: flex;
   flex-direction: column;
   width: 300px;
+  margin: 10px auto;
+}
+
+.mainroom-formcontainer {
+  width: 700px;
+  height: 150px;
   margin: auto auto;
+  background-color: #bccfbe;
+}
+.roomform-text {
+  margin: 10px auto;
+  font-family: 'Playfair';
+  font-size: 16px;
+  font-weight: 200;
+  color: gray;
 }
 
 .mainroom-container {
   width: 700px;
-  height: 500px;
+  height: 300px;
   border: 1px solid rgba(121, 143, 132, 0.596);
-  margin: 30px auto;
+  margin: 0 auto 30px auto;
   display: flex;
   justify-content: center;
   background-color: #bccfbe;
+  border: none;
 }
 
 #room-input,
@@ -197,10 +249,16 @@ Nav {
   background-color: rgba(242, 250, 246, 0.876);
 }
 
+.formbtns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .roomform-submitbtn {
   font-family: 'Playfair';
+  width: 100px;
   padding: 10px 10px;
-  margin: 5px auto;
+  margin: 5px 5px;
   color: rgba(108, 123, 116, 0.596);
 }
 
@@ -226,4 +284,12 @@ Nav {
 .btn{
   padding: 5px;
   margin: 10px auto;
+  }
+
+.rooms-container {
+  display: flex;
+}
+.rooms {
+  flex-direction: column;
+  flex-wrap: wrap;
 }

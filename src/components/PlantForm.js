@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Client from '../services/api'
-import { GetRooms } from '../services/Auth'
+// import { GetRooms } from '../services/Auth'
 // import { useParams } from 'react-router-dom'
 
-const PlantForm = ({ user, getAllPlants }) => {
+const PlantForm = ({ user, getAllPlants, roomList }) => {
   const formValues = {
     image: '',
     name: '',
@@ -12,7 +12,7 @@ const PlantForm = ({ user, getAllPlants }) => {
     roomId: ''
   }
 
-  const [rooms, setRooms] = useState([])
+  // const [rooms, setRooms] = useState(roomList)
   const [plantFormValues, setPlantFormValues] = useState(formValues)
 
   const submitHandleClick = async (e) => {
@@ -33,14 +33,14 @@ const PlantForm = ({ user, getAllPlants }) => {
     setPlantFormValues({ ...plantFormValues, [e.target.name]: e.target.value })
   }
 
-  //useeffect get rooms
-  useEffect(() => {
-    const RoomList = async () => {
-      let roomslist = await GetRooms(user)
-      setRooms(roomslist)
-    }
-    RoomList()
-  }, [])
+  // //useeffect get rooms
+  // useEffect(() => {
+  //   const RoomList = async () => {
+  //     let roomslist = await GetRooms(user)
+  //     setRooms(roomslist)
+  //   }
+  //   RoomList()
+  // }, [])
 
   return (
     <div className="mainroom-container">
@@ -53,8 +53,8 @@ const PlantForm = ({ user, getAllPlants }) => {
           <option value="" disabled>
             - Select Room -
           </option>
-          {rooms.map((room) => (
-            <option value={room.id} key={room.id}>
+          {roomList.map((room) => (
+            <option name="roomId" value={room.id} key={room.id}>
               {room.name}
             </option>
           ))}

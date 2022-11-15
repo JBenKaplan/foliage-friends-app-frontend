@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import Client from '../services/api'
+import { useNavigate } from 'react-router'
 // import { useParams } from 'react-router-dom'
 
-const RoomForm = ({ user }) => {
+const RoomForm = ({ user, afterSubmitClick }) => {
+  let navigate = useNavigate()
+
   const formValues = {
     name: '',
     userId: user.id //ADD USERID BY AUTH!! CHANGE DAMN YOU??
@@ -13,10 +16,11 @@ const RoomForm = ({ user }) => {
   const submitHandleClick = async (e) => {
     e.preventDefault()
     try {
-      let res = await Client.post('/rooms/create', {
+      await Client.post('/rooms/create', {
         room
       })
       setRoom(formValues)
+      afterSubmitClick(room)
     } catch (error) {
       throw error
     }
@@ -27,8 +31,9 @@ const RoomForm = ({ user }) => {
   }
 
   return (
-    <div className="mainroom-container">
-      <form className="form-container">
+    <div className="mainroom-formcontainer">
+      <form className="roomform-container">
+        <h4 className="roomform-text">-create new room-</h4>
         <input
           onChange={handleChange}
           type="text"
@@ -37,14 +42,22 @@ const RoomForm = ({ user }) => {
           id="room-input"
           name="name"
         ></input>
-        <button
-          onClick={submitHandleClick}
-          type="submit"
-          value="value"
-          className="roomform-submitbtn"
-        >
-          Submit
-        </button>
+        <div className="formbtns">
+          <button
+            onClick={() => navigate('/editrooms')}
+            className="roomform-submitbtn"
+          >
+            Edit Rooms
+          </button>
+          <button
+            onClick={submitHandleClick}
+            type="submit"
+            value="value"
+            className="roomform-submitbtn"
+          >
+            Submit
+          </button>
+        </div>
       </form>
     </div>
   )
