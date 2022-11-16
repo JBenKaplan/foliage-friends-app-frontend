@@ -7,6 +7,7 @@ import LogIn from './components/LogIn'
 import Register from './components/Register'
 import AppTitle from './components/AppTitle'
 import PlantGallery from './components/PlantGallery'
+import PlantCard from './components/PlantCard'
 import Nav from './components/NavBar'
 import AccountDetails from './pages/AccountDetails'
 import RoomsPage from './pages/RoomsPage'
@@ -43,6 +44,8 @@ const App = () => {
         <Route path="/login" element={<LogIn setUser={setUser} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/plantgallery" element={<PlantGallery user={user} />} />
+        <Route path="/plantdetails/:id" element={<PlantCard user={user} />} />
+
         <Route
           path="/accountdetails"
           element={<AccountDetails user={user} handleLogOut={handleLogOut} />}

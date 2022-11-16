@@ -12,7 +12,7 @@ const PlantGallery = ({ user }) => {
   //   name: '',
   //   details: ''
   // }
-  let navigate = useNavigate()
+  const navigate = useNavigate()
 
   const [currentClickPlantState, setClickPlantState] = useState(false)
 
@@ -47,12 +47,13 @@ const PlantGallery = ({ user }) => {
   useEffect(() => {
     getAllPlants()
     RoomList()
-
     // initial render the user object is empty
     // after checkToken api call, the user will have data
     // before, even if the user has data, useEffect was not being executed again
     // useEffect dependencies is to ensure that execution will happen again if the user has data
   }, [user])
+
+  console.log('Rooms ', rooms)
 
   return user ? (
     <div className="main-container">
@@ -89,7 +90,13 @@ const PlantGallery = ({ user }) => {
                       <div className="plant-container" key={plant.id}>
                         <div className="plant">
                           <p className="plant-name">{plant.name}</p>
-                          <img src={plant.image} className="sampleplant-img" />
+                          <img
+                            onClick={() => {
+                              navigate(`/plantdetails/${plant.id}`) //anonymous function + function call to navigate to plantdetails.id
+                            }}
+                            src={plant.image}
+                            className="sampleplant-img"
+                          />
                         </div>
                       </div>
                     )
