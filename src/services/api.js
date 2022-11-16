@@ -1,6 +1,6 @@
 import Axios from 'axios'
 
-export const BASE_URL = 'https://git.heroku.com/foliage-friends-database.git'
+export const BASE_URL = 'https://foliage-friends-database.herokuapp.com/'
 
 const Client = Axios.create({ baseURL: BASE_URL })
 
