@@ -19,8 +19,6 @@ const PlantGallery = ({ user }) => {
   const [currentAllPlants, setAllPlants] = useState([])
   const [rooms, setRooms] = useState([])
 
-  console.log('rooms ', rooms, currentAllPlants)
-
   const handleClick = async (e) => {
     if (currentClickPlantState === false) {
       setClickPlantState(true)
@@ -55,10 +53,6 @@ const PlantGallery = ({ user }) => {
     // useEffect dependencies is to ensure that execution will happen again if the user has data
   }, [user])
 
-  const plantHandleClick = () => {
-    navigate('/plantdetails')
-  }
-
   console.log('Rooms ', rooms)
 
   return user ? (
@@ -67,16 +61,15 @@ const PlantGallery = ({ user }) => {
         <div className="addplantbtn-container">
           {/* <button className="addroom-btn">Add Room</button> */}
           <button onClick={handleClick} className="addplant-btn">
-            Add Plant
+            Add
           </button>
         </div>
         <div className={`dropdown-panel ${panelDisplay}`}>
           <RoomForm
             user={user}
-            afterSubmitClick={(roomObj) => {
-              // passing data from RoomForm to PlantGallery parent component
-              // check RoomForm line 20
-              setRooms([...rooms, roomObj])
+            afterSubmitClick={() => {
+              let moreRoom = RoomList()
+              setRooms([...moreRoom])
             }}
           />
           <PlantForm
@@ -88,22 +81,24 @@ const PlantGallery = ({ user }) => {
         </div>
         <ul className="li-container">
           {rooms.map((room) => (
-            <div key={room._id}>
+            <div key={room.id}>
               <h3>{room.name}</h3>
               <div className="plants">
                 {currentAllPlants.map((plant) => {
                   if (parseInt(plant.roomId) === room.id) {
                     return (
-                      <ul className="rooms-container">
-                        <li className="rooms" key={plant.id}>
+                      <div className="plant-container">
+                        <div className="plant" key={plant.id}>
                           <p className="plant-name">{plant.name}</p>
                           <img
-                            onClick={plantHandleClick}
+                            onClick={() => {
+                              navigate(`/plantdetails/${plant.id}`) //anonymous function + function call to navigate to plantdetails.id
+                            }}
                             src={plant.image}
                             className="sampleplant-img"
                           />
-                        </li>
-                      </ul>
+                        </div>
+                      </div>
                     )
                   }
                 })}

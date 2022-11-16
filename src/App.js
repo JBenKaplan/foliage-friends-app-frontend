@@ -11,6 +11,7 @@ import PlantCard from './components/PlantCard'
 import Nav from './components/NavBar'
 import AccountDetails from './pages/AccountDetails'
 import RoomsPage from './pages/RoomsPage'
+import UpdateRoom from './components/UpdateRoom'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -42,12 +43,17 @@ const App = () => {
         <Route path="/login" element={<LogIn setUser={setUser} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/plantgallery" element={<PlantGallery user={user} />} />
-        <Route path="/plantdetails" element={<PlantCard user={user} />} />
+        <Route path="/plantdetails/:id" element={<PlantCard user={user} />} />
+
         <Route
           path="/accountdetails"
           element={<AccountDetails user={user} handleLogOut={handleLogOut} />}
         />
         <Route path="/editrooms" element={<RoomsPage user={user} />} />
+        <Route
+          path="/updateroom/:room_id"
+          element={<UpdateRoom user={user} />}
+        />
       </Routes>
     </div>
   )

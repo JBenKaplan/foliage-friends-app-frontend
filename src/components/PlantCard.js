@@ -2,22 +2,27 @@ import { useParams } from 'react-router-dom'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import Client from '../services/api'
+import plantcardImg from './sampleplant.png'
 
 const PlantCard = (props) => {
-  const [currentRoomName, setRoomName] = useState()
-  const [currentPlantName, setPlantName] = useState()
-  const [currentImage, setImage] = useState()
+  console.log('my plant card is working')
+  const [currentRoomInfo, setRoomInfo] = useState()
+  const [currentPlantInfo, setPlantInfo] = useState({
+    name: 'Umbrella Tree',
+    image: ''
+  })
 
-  let id = useParams()
+  let { id } = useParams()
 
   useEffect(() => {
+    console.log('use effect is working')
     const getData = async () => {
-      if (id == !undefined) {
-        let response = await Client.get(`/plantid/:plant_id/GetPlantId/${id}`)
-        console.log(response.data.plant)
-        setRoomName(response.data.roomId)
-        setPlantName(response.data.name)
-        setImage(response.data.image)
+      if (id !== undefined) {
+        console.log('id is found')
+        let response = await Client.get(`/plants/plant/${id}`)
+        console.log(response.data)
+        // setRoomName(response.data.roomId)
+        setPlantInfo(response.data)
       }
     }
     getData()
@@ -25,9 +30,9 @@ const PlantCard = (props) => {
 
   return (
     <div className="plantcard-container">
-      <h1 className="room-title">{currentRoomName}</h1>
-      <h4 className="plantname-text">{currentPlantName}</h4>
-      <img className="plantcard-image" src={currentImage} />
+      {/* <h1 className="room-title">{currentRoomInfo.name}</h1> */}
+      <h4 className="plantname-text">{currentPlantInfo.name}</h4>
+      <img className="plantcard-image" src={currentPlantInfo.image} />
     </div>
   )
 }
