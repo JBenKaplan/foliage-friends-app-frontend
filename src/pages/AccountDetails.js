@@ -15,7 +15,7 @@ const AccountDetails = ({ user, handleLogOut }) => {
     newPassword: '',
     confirmNewPassword: '',
     password: '',
-    userId: user.id
+    userId: ''
   }
 
   const [renderedForm, setRenderedForm] = useState(inititialRenderedForm)
@@ -32,29 +32,33 @@ const AccountDetails = ({ user, handleLogOut }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log('handleSubmit requested')
     try {
       //check if new password=confirm New password
       if (
         updateFormValues.newPassword !== updateFormValues.confirmNewPassword
       ) {
-        window.alert('new password and confirm new password must match')
+        window.alert(
+          'Update request failed. \nNew Password and Confirm New Password must match.'
+        )
         return
       } else {
+        //add userId to updateform value
+        let updateBody = { ...updateFormValues, userId: user.id }
         //send update request with current pw, confirm pw on backend
-        let res = await UpdateAccount({ updateFormValues })
+        let res = await UpdateAccount(updateBody)
         console.log(res) // this is not working when pw does not match
       }
+
+      // CLEAN UP
       //alert user that update was successful
-      window.alert('account details updated. please sign in again')
-      //navigate back to sign in
+      window.alert('SUCCESS! Account details updated. \nPlease sign in again')
+      // logout and navigate back to sign in
       handleLogOut()
       navigate('/login')
-
-      //set new user state in App.js... get new token?
-      // setUpdateFormValues(initialUpdateFormValues)
-      // setRenderedForm(inititialRenderedForm)
     } catch (error) {
+      window.alert(
+        'Update request failed. \nCheck that your Current Password was entered correctly.'
+      )
       throw error
     }
   }
@@ -69,7 +73,7 @@ const AccountDetails = ({ user, handleLogOut }) => {
     ) {
       // JAL - wanted to do this as password protected, but delete requests do not allow req.body, so I wasn't sure where to put the pw... Still, token is stripped and verified prior to user deletion
       await DeleteAccount(user.id)
-      window.alert(`sorry to see you go, ${user.email}`)
+      window.alert(`sorry to see you go, ${user.name}`)
       handleLogOut()
       navigate('/register')
     }

@@ -86,8 +86,8 @@ const PlantGallery = ({ user }) => {
                 {currentAllPlants.map((plant) => {
                   if (parseInt(plant.roomId) === room.id) {
                     return (
-                      <div className="plant-container">
-                        <div className="plant" key={plant.id}>
+                      <div className="plant-container" key={plant.id}>
+                        <div className="plant">
                           <p className="plant-name">{plant.name}</p>
                           <img src={plant.image} className="sampleplant-img" />
                         </div>
