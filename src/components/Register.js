@@ -48,7 +48,7 @@ const Register = () => {
           required
         ></input>
         <input
-          type="text"
+          type="password"
           placeholder="password"
           name="password"
           className="signup-input"
@@ -57,7 +57,7 @@ const Register = () => {
           required
         ></input>
         <input
-          type="text"
+          type="password"
           placeholder="confirm password"
           name="confirmPassword"
           className="signup-input"
