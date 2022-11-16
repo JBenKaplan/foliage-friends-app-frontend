@@ -6,7 +6,9 @@ const Nav = ({ user, handleLogOut }) => {
     authenticatedOptions = (
       <nav>
         {/* <h3>Welcome {user.email.split('@')[0]}!</h3> */}
-        <h3>Welcome {user.name}!</h3>
+        <div className="welcome-textname">
+          <h3>Welcome {user.name}!</h3>
+        </div>
 
         <Link to="/plantgallery">Plants</Link>
         <Link to="/accountdetails">Account</Link>

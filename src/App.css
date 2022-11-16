@@ -335,18 +335,26 @@ Nav {
 .plantname-text, .room-title, .details, h3 {
   font-family: 'Playfair';
   color: #30463d;
+  font-size: 20px;
 }
 
 nav {
   display: flex;
-    justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 a {
   margin: 8px;
   text-decoration: none;
   color:#1b3529;
+  font-family: 'Playfair';
 }
+
+.welcome-textname {
+  display: flex;
+  justify-content:left;
+}
+
 /* // Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) { ... }
 // Medium devices (tablets, 768px and up)
