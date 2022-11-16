@@ -135,6 +135,11 @@ Nav {
   flex-flow: wrap row;
 }
 
+.plantcard-image {
+  height: 40vh;
+  width: 40vw;
+}
+
 .rooms {
   margin: 20px auto;
   list-style: none;
@@ -193,9 +198,12 @@ Nav {
 }
 
 .main-container,
-.rooms-container {
+.rooms-container,
+.plantcard-container {
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: column;
   background-color: #a2c3a4;
   margin: 0 auto;
 }

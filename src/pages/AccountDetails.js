@@ -72,8 +72,11 @@ const AccountDetails = ({ user, handleLogOut }) => {
       )
     ) {
       // JAL - wanted to do this as password protected, but delete requests do not allow req.body, so I wasn't sure where to put the pw... Still, token is stripped and verified prior to user deletion
-      await DeleteAccount(user.id)
-      window.alert(`sorry to see you go, ${user.name}`)
+      let res = await DeleteAccount(user.id)
+      if (res) {
+        console.log(res)
+      }
+      window.alert(`${res.message}\nSorry to see you go, ${user.name}`)
       handleLogOut()
       navigate('/register')
     }
@@ -118,7 +121,7 @@ const AccountDetails = ({ user, handleLogOut }) => {
             name="email"
           />
           <input
-            type="text"
+            type="password"
             onChange={handleChange}
             value={updateFormValues.newPassword}
             placeholder="New Password"
@@ -126,7 +129,7 @@ const AccountDetails = ({ user, handleLogOut }) => {
             name="newPassword"
           />
           <input
-            type="text"
+            type="password"
             onChange={handleChange}
             value={updateFormValues.confirmNewPassword}
             placeholder="Confirm New Password"
@@ -134,7 +137,7 @@ const AccountDetails = ({ user, handleLogOut }) => {
             name="confirmNewPassword"
           />
           <input
-            type="text"
+            type="password"
             onChange={handleChange}
             value={updateFormValues.password}
             placeholder="Current Password (required)"

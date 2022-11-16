@@ -1,27 +1,30 @@
 import { useEffect, useState } from 'react'
 import Client from '../services/api'
-import { useNavigate } from 'react-router'
+import { useNavigate, useParams } from 'react-router'
 
 const RoomForm = ({ user }) => {
   let navigate = useNavigate()
+  let { id } = useParams()
 
   const formValues = {
     name: '',
-    userId: user.id
+    roomId: ''
   }
 
   const [roomForm, setRoomForm] = useState(formValues)
   const [room, setRoom] = useState({})
 
   const GetRoomInfo = async () => {
-    let id = window.location.href.split('/updateroom/')
-    let roomId = parseInt(id[1])
-    let changeroom = await Client.get(`/rooms/room/${roomId}`)
+    let changeroom = await Client.get(`/rooms/room/${id}`)
     setRoom(changeroom.data[0])
   }
 
   const handleChange = (e) => {
-    setRoomForm({ ...formValues, [e.target.name]: e.target.value })
+    setRoomForm({
+      ...formValues,
+      [e.target.name]: e.target.value,
+      roomId: room.id
+    })
   }
 
   const submitHandleClick = async (e) => {
