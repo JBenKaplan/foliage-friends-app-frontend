@@ -9,7 +9,7 @@ const PlantForm = ({ user, getAllPlants, roomList }) => {
     image: '',
     name: '',
     details: '',
-    userId: user.id,
+    userId: '',
     roomId: ''
   }
 
@@ -32,7 +32,11 @@ const PlantForm = ({ user, getAllPlants, roomList }) => {
   }
 
   const handleChange = (e) => {
-    setPlantFormValues({ ...plantFormValues, [e.target.name]: e.target.value })
+    setPlantFormValues({
+      ...plantFormValues,
+      [e.target.name]: e.target.value,
+      userId: user.id
+    })
   }
 
   // //useeffect get rooms
@@ -68,8 +72,7 @@ const PlantForm = ({ user, getAllPlants, roomList }) => {
         <input
           onChange={handleChange}
           // onClick={clickImage}
-          accept="image/*"
-          type="file"
+          type="text"
           src="./uploadimage.png"
           value={plantFormValues.image}
           placeholder="upload image"
