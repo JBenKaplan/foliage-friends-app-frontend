@@ -17,7 +17,14 @@ const App = () => {
 
   const checkToken = async () => {
     const user = await CheckSession()
+    console.log(user)
     setUser(user)
+  }
+
+  const handleLogOut = () => {
+    //Reset all auth related state and clear localStorage
+    setUser(null)
+    localStorage.clear()
   }
 
   useEffect(() => {
@@ -26,12 +33,6 @@ const App = () => {
       checkToken()
     }
   }, [])
-
-  const handleLogOut = () => {
-    //Reset all auth related state and clear localStorage
-    setUser(null)
-    localStorage.clear()
-  }
 
   return (
     <div>
