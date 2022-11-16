@@ -18,7 +18,6 @@ const App = () => {
 
   const checkToken = async () => {
     const user = await CheckSession()
-    console.log(user)
     setUser(user)
   }
 
@@ -51,10 +50,7 @@ const App = () => {
           element={<AccountDetails user={user} handleLogOut={handleLogOut} />}
         />
         <Route path="/editrooms" element={<RoomsPage user={user} />} />
-        <Route
-          path="/updateroom/:room_id"
-          element={<UpdateRoom user={user} />}
-        />
+        <Route path="/updateroom/:id" element={<UpdateRoom user={user} />} />
       </Routes>
     </div>
   )

@@ -53,8 +53,6 @@ const PlantGallery = ({ user }) => {
     // useEffect dependencies is to ensure that execution will happen again if the user has data
   }, [user])
 
-  console.log('Rooms ', rooms)
-
   return user ? (
     <div className="main-container">
       <div className="roomlist-container">

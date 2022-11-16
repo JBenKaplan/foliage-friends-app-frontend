@@ -31,7 +31,6 @@ export const CheckSession = async () => {
 
 export const GetRooms = async (req) => {
   try {
-    console.log(req)
     const res = await Client.get(`/rooms/user/${req.id}`)
     return res.data
   } catch (error) {
