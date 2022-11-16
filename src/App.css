@@ -62,7 +62,6 @@ Nav {
   display: flex;
   flex-direction: column;
   margin: 50px auto;
-
   padding: 30px 50px;
   background-color: #a2c3a4;
 }
@@ -113,11 +112,12 @@ Nav {
 
 .li-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 90vw;
   margin: 0 auto;
   flex-flow: wrap row;
+  padding: 0;
 }
 
 .plantInfo {
@@ -127,17 +127,13 @@ Nav {
 }
 
 .plants {
-  border: #004f2d 2px solid;
+  justify-content: center;
+  border: #1b3529 2px solid;
   display: flex;
   align-items: center;
   width: 90vw;
   margin: 0 auto;
   flex-flow: wrap row;
-}
-
-.plantcard-image {
-  height: 40vh;
-  width: 40vw;
 }
 
 .rooms {
@@ -192,6 +188,8 @@ Nav {
 .sampleplant-img {
   width: 250px;
   height: 250px;
+  padding: 5px;
+  margin: 5px;
   border-radius: 50%;
   border: 1px solid rgb(135, 133, 129);
   background-color: rgb(226, 230, 219);
@@ -206,7 +204,9 @@ Nav {
   flex-direction: column;
   background-color: #a2c3a4;
   margin: 0 auto;
+  text-align: center;
 }
+
 
 .roomlist-container {
   margin: auto 20px;
@@ -323,3 +323,35 @@ Nav {
   flex-direction: column;
   flex-wrap: wrap;
 }
+
+.plantcard-image {
+  height: 300px;
+  width: 300px;
+  padding: 2px;
+  border-radius: 50%;
+}
+
+
+.plantname-text, .room-title, .details, h3 {
+  font-family: 'Playfair';
+  color: #30463d;
+}
+
+nav {
+  display: flex;
+    justify-content: flex-end;
+}
+
+a {
+  margin: 8px;
+  text-decoration: none;
+  color:#1b3529;
+}
+/* // Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... } */
