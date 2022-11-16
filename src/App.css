@@ -7,12 +7,7 @@ body {
   text-align: center;
 }
 
-Nav {
-  background-color: #768076c9;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
+
 
 .protected {
   text-align: center;
@@ -338,10 +333,20 @@ Nav {
   font-size: 20px;
 }
 
+
+Nav {
+  background-color: #76807657;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 nav {
   display: flex;
   justify-content: flex-end;
 }
+
+
 
 a {
   margin: 8px;
