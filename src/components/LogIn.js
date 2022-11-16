@@ -47,7 +47,7 @@ const LogIn = ({ setUser }) => {
             onChange={handleChange}
             value={formValues.password}
             required
-            type="text"
+            type="password"
             name="password"
             className="signin-input"
             placeholder="password"
