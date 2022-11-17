@@ -398,6 +398,9 @@ a {
 }
 
 .update-form {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
   margin: auto auto;
 }
 
@@ -405,6 +408,7 @@ a {
   color: #013720;
   font-family: 'Playfair';
 }
+
 .update-plantname,
 .update-roomname,
 .update-details {
