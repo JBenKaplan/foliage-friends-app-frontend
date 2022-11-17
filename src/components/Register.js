@@ -58,57 +58,63 @@ const Register = () => {
     )
   } else {
     return (
-      <div>
-        <form className="signup-container" onSubmit={handleSubmit}>
-          <input
-            onChange={handleChange}
-            type="text"
-            placeholder="name"
-            name="name"
-            className="signup-input"
-            value={formValues.name}
-            required
-          ></input>
-          <input
-            type="text"
-            placeholder="email"
-            name="email"
-            className="signup-input"
-            onChange={handleChange}
-            value={formValues.email}
-            required
-          ></input>
-          <input
-            type="password"
-            placeholder="password"
-            name="password"
-            className="signup-input"
-            onChange={handleChange}
-            value={formValues.password}
-            required
-          ></input>
-          <input
-            type="password"
-            placeholder="confirm password"
-            name="confirmPassword"
-            className="signup-input"
-            onChange={handleChange}
-            value={formValues.confirmPassword}
-            required
-          ></input>
-
-          <button
-            disabled={
-              !formValues.email
-              // !formValues.email ||
-              // (!formValues.password &&
-              //   formValues.confirmPassword === formValues.password)
-            }
-            className="signup-btn"
-          >
-            Sign Up
+      <div className="signup-container">
+        <div className="button-form-container">
+          <button onClick={() => navigate('/login')} className="signup-btn">
+            Sign In
           </button>
-        </form>
+          <form className="register-container" onSubmit={handleSubmit}>
+            <h3>Sign Up</h3>
+            <input
+              onChange={handleChange}
+              type="text"
+              placeholder="name"
+              name="name"
+              className="signup-input"
+              value={formValues.name}
+              required
+            ></input>
+            <input
+              type="text"
+              placeholder="email"
+              name="email"
+              className="signup-input"
+              onChange={handleChange}
+              value={formValues.email}
+              required
+            ></input>
+            <input
+              type="password"
+              placeholder="password"
+              name="password"
+              className="signup-input"
+              onChange={handleChange}
+              value={formValues.password}
+              required
+            ></input>
+            <input
+              type="password"
+              placeholder="confirm password"
+              name="confirmPassword"
+              className="signup-input"
+              onChange={handleChange}
+              value={formValues.confirmPassword}
+              required
+            ></input>
+
+            <button
+              disabled={
+                !formValues.email
+                // !formValues.email ||
+                // (!formValues.password &&
+                //   formValues.confirmPassword === formValues.password)
+              }
+              className="signup-btn"
+            >
+              Sign Up
+            </button>
+          </form>
+        </div>
       </div>
     )
   }

@@ -38,24 +38,46 @@ html {
   background-color: #7680769e;
 }
 
-.signup-container {
+/* .register-container,
+.signin-container {
   display: flex;
   flex-direction: column;
   text-align: center;
-  width: 600px;
-  margin: 150px auto;
+  margin: 50px auto;
   padding: 50px 20px;
   background-color: #a2c3a4;
+} */
+
+/* .login-container {
+  text-align: center;
+  margin: 0 auto;
+} */
+
+.signup-container,
+.login-container {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.signin-container,
+.register-container {
+  display: flex;
+  flex-direction: column;
+  margin: 50px auto;
+  padding: 30px 50px;
+  background-color: #a2c3a4;
+}
+
+.signin-input,
+.signup-input {
+  margin: 8px auto;
+  padding: 8px 30px;
+  color: rgb(73, 70, 70);
 }
 .signup-input,
 .signup-btn {
   margin: 10px auto;
   padding: 5px 50px;
-}
-
-.login-container {
-  text-align: center;
-  margin: 0 auto;
 }
 
 .button-form-container {
@@ -69,20 +91,6 @@ html {
   font-size: 18px;
   padding: 8px 20px;
   margin: auto;
-}
-
-.signin-container {
-  display: flex;
-  flex-direction: column;
-  margin: 50px auto;
-  padding: 30px 50px;
-  background-color: #a2c3a4;
-}
-
-.signin-input {
-  margin: 8px auto;
-  padding: 8px 30px;
-  color: rgb(73, 70, 70);
 }
 
 .submit-btn {

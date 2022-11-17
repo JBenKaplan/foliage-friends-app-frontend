@@ -62,7 +62,7 @@ const UpdateForm = ({ user }) => {
           value={currentUpdate.name}
           className="update-plantname"
         />
-        <p>Plant location: {}</p>
+        <p>Plant location:</p>
         <select
           onChange={handleChange}
           name="roomId"
