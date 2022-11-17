@@ -149,10 +149,10 @@ html {
 }
 
 .plants {
-  justify-content: center;
   border: #1b3529 2px solid;
   display: flex;
   align-items: center;
+  justify-content: center;
   width: 90vw;
   margin: 0 auto;
   flex-flow: wrap row;
@@ -165,13 +165,14 @@ html {
 }
 
 .roomList {
-  /* border: black 2px solid; */
+  padding: 0 0 20px 0;
   display: flex;
   flex-direction: column;
   width: 200px;
 }
 
 .rooms-container {
+  padding: 0 0 20px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -179,8 +180,13 @@ html {
 
 .roomInfo {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.editRoomButtons {
+  display: flex;
 }
 
 .removeRoomBtn,
