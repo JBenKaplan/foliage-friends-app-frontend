@@ -149,13 +149,16 @@ html {
 }
 
 .plants {
-  border: #1b3529 2px solid;
+  border: 1px solid rgba(121, 143, 132, 0.596);
+  background-color: #bccfbe;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 90vw;
+  min-width: 60vw;
+  max-width: 90vw;
   margin: 0 auto;
   flex-flow: wrap row;
+  border-radius: 10px;
 }
 
 .rooms {
@@ -233,6 +236,7 @@ html {
   background-color: #a2c3a4;
   margin: 0 auto;
   text-align: center;
+  padding: 20px;
 }
 
 .roomlist-container {
@@ -255,14 +259,14 @@ html {
   flex-direction: column;
   align-items: center;
   width: 300px;
-  margin: 10px auto;
+  margin: auto auto;
 }
 
-.mainroom-formcontainer {
-  width: 700px;
-  height: 150px;
-  margin: auto auto;
-  background-color: #bccfbe;
+.update-room-container {
+  background-color: #a2c3a4;
+  display: flex;
+  justify-content: center;
+  height: 200px;
 }
 .roomform-text {
   margin: 10px auto;
@@ -280,12 +284,23 @@ html {
   display: flex;
   justify-content: center;
   background-color: #bccfbe;
-  border: none;
+  border-radius: 10px;
+}
+.main-room-container {
+  width: 700px;
+  height: 170px;
+  border: 1px solid rgba(121, 143, 132, 0.596);
+  margin: 0 auto 30px auto;
+  display: flex;
+  justify-content: center;
+  background-color: #bccfbe;
+  border-radius: 10px;
 }
 
 #room-input,
 #plantname-input,
-#description-input {
+#description-input,
+.roomNameInput {
   font-family: 'Playfair';
   padding: 10px 15px;
   margin: 6px 30px;
@@ -332,16 +347,13 @@ html {
 }
 
 .account-container {
-  text-align: center;
   display: flex;
+  text-align: center;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   background-color: #a2c3a4;
-}
-
-.btn {
-  padding: 5px;
-  margin: 10px auto;
+  padding: 20px;
 }
 
 .rooms-container {
@@ -432,19 +444,17 @@ a {
   font-family: 'Playfair';
 }
 
-.account-container {
-  display: flex;
-  justify-content: center;
-  height: 300px;
-  margin: 100px;
-}
-
-.btn {
+/* .btn {
   margin: 40px 20px;
   padding: 10px 15px;
   font-family: 'Playfair';
   font-size: 16px;
   color: #004f2d;
+} */
+
+.btn {
+  padding: 5px;
+  margin: 10px auto;
 }
 
 .account-text {

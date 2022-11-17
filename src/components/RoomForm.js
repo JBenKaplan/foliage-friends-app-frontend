@@ -31,10 +31,11 @@ const RoomForm = ({ user, afterSubmitClick }) => {
   }
 
   return (
-    <div className="mainroom-formcontainer">
+    <div className="main-room-container">
       <form className="roomform-container">
         <h4 className="roomform-text">-create new room-</h4>
         <input
+          className="roomNameInput"
           onChange={handleChange}
           type="text"
           placeholder="Room"

@@ -4,7 +4,6 @@ import Client from '../services/api'
 
 const DeletePlant = (props) => {
   let navigate = useNavigate()
-  console.log(props)
   if (!props.show) {
     return null
   }
