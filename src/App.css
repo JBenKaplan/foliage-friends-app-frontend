@@ -7,8 +7,6 @@ body {
   text-align: center;
 }
 
-
-
 .protected {
   text-align: center;
 }
@@ -202,7 +200,6 @@ body {
   text-align: center;
 }
 
-
 .roomlist-container {
   margin: auto 20px;
 }
@@ -326,13 +323,14 @@ body {
   border-radius: 50%;
 }
 
-
-.plantname-text, .room-title, .details, h3 {
+.plantname-text,
+.room-title,
+.details,
+h3 {
   font-family: 'Playfair';
   color: #30463d;
   font-size: 20px;
 }
-
 
 Nav {
   background-color: #76807657;
@@ -349,13 +347,13 @@ nav {
 a {
   margin: 8px;
   text-decoration: none;
-  color:#1b3529;
+  color: #1b3529;
   font-family: 'Playfair';
 }
 
 .welcome-textname {
   display: flex;
-  justify-content:left;
+  justify-content: left;
 }
 
 .update-image {
@@ -366,16 +364,16 @@ a {
 }
 .update-container {
   display: flex;
- 
 }
 
 .update-form {
   margin: 0 auto;
 }
 
-.update-plantname, .update-roomname, .update-details {
+.update-plantname,
+.update-roomname,
+.update-details {
   margin: 5px;
-
 }
 
 /* // Small devices (landscape phones, 576px and up)
@@ -386,3 +384,20 @@ a {
 @media (min-width: 992px) { ... }
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) { ... } */
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #a2c3a4;
+  border: #004f2d 2px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  width: 50vw;
+}
