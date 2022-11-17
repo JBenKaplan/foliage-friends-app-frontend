@@ -85,7 +85,7 @@ const AccountDetails = ({ user, handleLogOut }) => {
   if (renderedForm.form === '') {
     return (
       <div className="account-container">
-        <h1>Account</h1>
+        <h1 className="account-text">Account</h1>
         <div className="btn-container">
           <button
             className="btn"
