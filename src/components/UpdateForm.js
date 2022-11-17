@@ -37,7 +37,7 @@ const UpdateForm = () => {
     <div className="update-container">
       <img src={currentUpdate.image} className="update-image" />
       <form className="update-form">
-        <h1>Update Details</h1>
+        <h1 className="updatetext-h1">Update Details</h1>
         <p className="name-text">Plant name:</p>
         <input
           onChange={(e) => {
@@ -48,13 +48,7 @@ const UpdateForm = () => {
           value={currentUpdate.name}
           className="update-plantname"
         />
-        <p className="updateroom-text">Room name:</p>
-        <input
-          onChange={(e) => {}}
-          type="text"
-          value={currentUpdate.room}
-          className="update-roomname"
-        />
+
         <p className="updatedetails-text">Details:</p>
         <input
           onChange={(e) => {

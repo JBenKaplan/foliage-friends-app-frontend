@@ -5,8 +5,8 @@ html {
   -o-background-size: cover;
   background-size: cover;
 }
-
-
+ 
+ 
 .App {
   text-align: center;
 }
@@ -21,10 +21,12 @@ html {
 }
 
 .header {
+  display: inline-block;
   justify-content: left;
   text-decoration-line: none;
   font-family: 'Playfair';
   color: rgb(58, 86, 58);
+
 }
 
 .header-text {
@@ -379,25 +381,47 @@ a {
   font-size: 18px;
   padding: 0 20px;
 }
+
+.update-container {
+  display: flex;
+  margin: 70px auto;
+  background-color: #a2c3a4;
+  padding: 60px;
+}
 .update-image {
   width: 300px;
   height: 300px;
   border-radius: 50%;
+<<<<<<< HEAD
+  margin: auto auto;
+=======
   margin: 0 auto;
 }
 .update-container {
   display: flex;
+>>>>>>> 1db5ea0455109c016c60b8020b22ec4378db5fc9
 }
 
 .update-form {
-  margin: 0 auto;
+  margin: auto auto;
 }
 
+<<<<<<< HEAD
+.updatetext-h1 {
+  color:#013720;
+  font-family: 'Playfair';
+}
+.update-plantname, .update-roomname, .update-details {
+  margin: 5px;
+  color:#013720;
+  font-family: 'Playfair';
+=======
 .update-plantname,
 .update-roomname,
 .update-details {
   margin: 5px;
 
+>>>>>>> 1db5ea0455109c016c60b8020b22ec4378db5fc9
 }
 
 .account-container {
@@ -419,9 +443,19 @@ a {
   color:#013720;
   font-family: 'Playfair';
 }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 1db5ea0455109c016c60b8020b22ec4378db5fc9
 
-@media screen and (max-width: 700px) {
+.update-submitbtn {
+  margin: 5px auto;
+  padding: 5px 15px;
+  color:#013720;
+  font-family: 'Playfair';
+}
+
+@media screen and (max-width: 540px) {
 .header-text {
   font-size: 16px;
   margin-left: 5px;
@@ -435,12 +469,28 @@ a {
 .nav {
   margin: auto 0;
 }
+.name-text, .updatedetails-text, .update-plantname, .update-roomname, .update-details {
+  margin: 5px 20px;
+  padding: 5px auto;
+}
+
+.update-form {
+  justify-content: center;
+  text-align: center;
+  width: 150px;
+
+}
+.update-submitbtn {
+  margin: 5px auto;
+  padding: 5px 15px;
+  color:#013720;
+  font-family: 'Playfair';
+  flex-direction: column;
+
+}
 }
 
 @media screen and (min-width: 701px) {
-  .header-text {
-
-  }
   .welcome-note {
     font-size: 16px;
     padding: 0 20px;
@@ -463,9 +513,59 @@ a {
     margin-top: auto;
     margin-bottom: auto;
   }
+  .update-image {
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    padding: 30px;
+  }
 
+   .update-plantname, .update-roomname, .update-details {
+    margin: 5px;
+    padding: 10px 40px;
+    color:#004f2d;
+  }
+  .update-container {
+    justify-content: center;
+  }
 }
   
+<<<<<<< HEAD
+@media screen and (max-width: 420px) {
+  .update-container {
+    display: flex;
+    flex-direction: column;
+  }
+ .update-image {
+  margin: 0 auto;
+  text-align: center;
+  width: 250px;
+  height: 250px;
+ }
+
+.update-form {
+  margin: 0 auto;
+  width: 300px;
+ }
+.update-plantname, .update-roomname, .update-details {
+  padding: 5px 10px;
+}
+.update-submitbtn {
+  flex-direction: column;
+}
+.update-container {
+  justify-content: center;
+}
+
+.updatetext-h1 {
+  font-size: 16px;
+}
+.updatedetails-text, .name-text {
+  padding: 2px 20px;
+  font-size: 12px;
+}
+}
+=======
 
 .modal {
   position: fixed;
@@ -484,3 +584,4 @@ a {
   width: 50vw;
 }
 
+>>>>>>> 1db5ea0455109c016c60b8020b22ec4378db5fc9
