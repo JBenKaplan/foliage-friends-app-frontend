@@ -3,9 +3,8 @@ import { useNavigate } from 'react-router'
 import Client from '../services/api'
 
 const DeleteAccount = (props) => {
-  console.log(props)
   let navigate = useNavigate()
-  console.log(props)
+
   if (!props.show) {
     return null
   }
@@ -13,7 +12,7 @@ const DeleteAccount = (props) => {
   const RemoveAccount = async (req) => {
     console.log(req)
     try {
-      // await Client.delete(`/users/user/${req}`)
+      await Client.delete(`/users/user/${req}`)
       console.log(`User removed with id of ${req}`)
       navigate('/register')
     } catch (err) {
