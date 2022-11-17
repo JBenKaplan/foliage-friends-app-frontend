@@ -1,32 +1,19 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router'
+import RoomDelete from '../components/RoomDelete.js'
 import { GetRooms } from '../services/Auth.js'
-import Client from '../services/api.js'
+// import Client from '../services/api.js'
+// import RoomDelete from '../components/RoomDelete'
 
 const RoomsPage = ({ user }) => {
   const [rooms, setRooms] = useState([])
+  const [show, setShow] = useState(false)
 
   let navigate = useNavigate()
 
   const RoomList = async () => {
     let roomslist = await GetRooms(user)
     setRooms(roomslist)
-  }
-
-  const RemoveRoom = async (req) => {
-    if (
-      window.confirm('Are you sure you would like to remove this room?') ===
-      true
-    ) {
-      try {
-        console.log(req)
-        await Client.delete(`/rooms/room/${req}`)
-        console.log(`Room removed with id of ${req}`)
-        window.location.reload()
-      } catch (err) {
-        throw err
-      }
-    }
   }
 
   useEffect(() => {
@@ -48,10 +35,16 @@ const RoomsPage = ({ user }) => {
             </button>
             <button
               className="removeRoomBtn"
-              onClick={() => RemoveRoom(room.id)}
+              // onClick={() => RemoveRoom(room.id)}
+              onClick={() => setShow(true)}
             >
               X
             </button>
+            <RoomDelete
+              onClose={() => setShow(false)}
+              show={show}
+              room={room}
+            />
           </div>
         ))}
       </div>
