@@ -12,6 +12,10 @@ const PlantCard = () => {
 
   let { id } = useParams()
 
+  const updateHandleClick = () => {
+    navigate(`/updateplant/${id}`)
+  }
+
   const RemovePlant = async (plant) => {
     console.log('Plant: ', plant)
     console.log(plant.id)
@@ -59,7 +63,7 @@ const PlantCard = () => {
         </button>
         <button
           className="updatePlantBtn"
-          // onClick={() => Update(currentPlantInfo.id)}
+          onClick={() => updateHandleClick(currentPlantInfo.id)}
         >
           Update
         </button>

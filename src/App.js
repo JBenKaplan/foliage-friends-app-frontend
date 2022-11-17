@@ -12,6 +12,7 @@ import Nav from './components/NavBar'
 import AccountDetails from './pages/AccountDetails'
 import RoomsPage from './pages/RoomsPage'
 import UpdateRoom from './components/UpdateRoom'
+import UpdateForm from './components/UpdateForm'
 
 const App = () => {
   const [user, setUser] = useState(null)
@@ -44,6 +45,7 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/plantgallery" element={<PlantGallery user={user} />} />
         <Route path="/plantdetails/:id" element={<PlantCard user={user} />} />
+        <Route path="/updateplant/:id" element={<UpdateForm user={user} />} />
 
         <Route
           path="/accountdetails"
