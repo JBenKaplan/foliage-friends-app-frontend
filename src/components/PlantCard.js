@@ -2,11 +2,12 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect } from 'react'
 import { useState } from 'react'
 import Client from '../services/api'
+import DeletePlant from './DeletePlant'
 // import plantcardImg from './sampleplant.png'
 
 const PlantCard = () => {
   const [currentPlantInfo, setPlantInfo] = useState({})
-  // const [currentRoomInfo, setRoomInfo] = useState({})
+  const [show, setShow] = useState(false)
 
   let navigate = useNavigate()
 
@@ -48,19 +49,25 @@ const PlantCard = () => {
 
   return (
     <div className="plantcard-container">
-      <h2 className="plantname-text">Name: {currentPlantInfo.name}</h2>
+      <h2 className="plantname-text">{currentPlantInfo.name}</h2>
       <div className="plantcard-image-container">
         <img className="plantcard-image" src={currentPlantInfo.image} />
       </div>
-      <h3 className="room-title">Location: {}</h3>
-      <h3 className="details">Details: {currentPlantInfo.details}</h3>
+      {/* <h3 className="room-title">Location: {currentPlantInfo.Room.name}</h3> */}
+      <h3 className="details">{currentPlantInfo.details}</h3>
       <div className="plantButtons">
         <button
           className="removePlantBtn"
-          onClick={() => RemovePlant(currentPlantInfo)}
+          // onClick={() => RemovePlant(currentPlantInfo)}
+          onClick={() => setShow(true)}
         >
           Delete
         </button>
+        <DeletePlant
+          onClose={() => setShow(false)}
+          show={show}
+          plant={currentPlantInfo}
+        />
         <button
           className="updatePlantBtn"
           onClick={() => updateHandleClick(currentPlantInfo.id)}
