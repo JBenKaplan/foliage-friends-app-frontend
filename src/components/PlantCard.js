@@ -56,6 +56,15 @@ const PlantCard = () => {
       {/* <h3 className="room-title">Location: {currentPlantInfo.Room.name}</h3> */}
       <h3 className="details">{currentPlantInfo.details}</h3>
       <div className="plantButtons">
+        <button className="backBtn" onClick={() => navigate(-1)}>
+          Back
+        </button>
+        <button
+          className="updatePlantBtn"
+          onClick={() => updateHandleClick(currentPlantInfo.id)}
+        >
+          Update
+        </button>
         <button
           className="removePlantBtn"
           // onClick={() => RemovePlant(currentPlantInfo)}
@@ -68,15 +77,6 @@ const PlantCard = () => {
           show={show}
           plant={currentPlantInfo}
         />
-        <button
-          className="updatePlantBtn"
-          onClick={() => updateHandleClick(currentPlantInfo.id)}
-        >
-          Update
-        </button>
-        <button className="backBtn" onClick={() => navigate(-1)}>
-          Back
-        </button>
       </div>
     </div>
   )
