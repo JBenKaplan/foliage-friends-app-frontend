@@ -37,7 +37,7 @@ const App = () => {
 
   return (
     <div>
-      <div class="header-container">
+      <div className="header-container">
         <Nav user={user} handleLogOut={handleLogOut} />
         <AppTitle />
       </div>
