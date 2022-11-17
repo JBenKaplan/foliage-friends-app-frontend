@@ -11,9 +11,6 @@ const Landing = () => {
   return (
     <div className="landing-container">
       <header className="landing-header"></header>
-      <button onClick={clickEnter} className="enter-btn">
-        ENTER
-      </button>
     </div>
   )
 }
