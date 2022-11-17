@@ -20,6 +20,7 @@ const LogIn = ({ setUser }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const payload = await SignInUser(formValues)
+    console.log(payload)
     setUser(payload)
     setFormValues(initialState)
     navigate('/plantgallery')
@@ -29,7 +30,7 @@ const LogIn = ({ setUser }) => {
     <div className="login-container">
       <div className="button-form-container">
         <button onClick={clickSignUp} className="signup-btn">
-          Sign Up
+          Register
         </button>
 
         <form className="signin-container">
