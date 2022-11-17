@@ -1,7 +1,9 @@
 // import Client from '../services/api'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { DeleteAccount, UpdateAccount } from '../services/Account'
+import { UpdateAccount } from '../services/Account'
+import DeleteAccount from '../components/DeleteAccount'
+import AccountUpdate from '../components/AccountUpdate'
 
 const AccountDetails = ({ user, handleLogOut }) => {
   let navigate = useNavigate()
@@ -18,6 +20,7 @@ const AccountDetails = ({ user, handleLogOut }) => {
     userId: ''
   }
 
+  const [showDelete, setShowDelete] = useState(false)
   const [renderedForm, setRenderedForm] = useState(inititialRenderedForm)
   const [updateFormValues, setUpdateFormValues] = useState(
     initialUpdateFormValues
@@ -63,24 +66,34 @@ const AccountDetails = ({ user, handleLogOut }) => {
     }
   }
 
-  // still not cascading to plants or rooms of the user
-  const deleteAccount = async (e) => {
-    e.preventDefault()
-    if (
-      window.confirm(
-        `Are you sure you want to delete you account?\nYou will lose all plants and rooms.`
-      )
-    ) {
-      // JAL - wanted to do this as password protected, but delete requests do not allow req.body, so I wasn't sure where to put the pw... Still, token is stripped and verified prior to user deletion
-      let res = await DeleteAccount(user.id)
-      if (res) {
-        console.log(res)
-      }
-      window.alert(`${res.message}\nSorry to see you go, ${user.name}`)
-      handleLogOut()
+  const RemoveAccount = async (req) => {
+    console.log(req)
+    try {
+      // await Client.delete(`/users/user/${req}`)
+      console.log(`User removed with id of ${req}`)
       navigate('/register')
+    } catch (err) {
+      throw err
     }
   }
+  // still not cascading to plants or rooms of the user
+  // const deleteAccount = async (e) => {
+  //   e.preventDefault()
+  //   if (
+  //     window.confirm(
+  //       `Are you sure you want to delete you account?\nYou will lose all plants and rooms.`
+  //     )
+  //   ) {
+  //     // JAL - wanted to do this as password protected, but delete requests do not allow req.body, so I wasn't sure where to put the pw... Still, token is stripped and verified prior to user deletion
+  //     let res = await DeleteAccount(user.id)
+  //     if (res) {
+  //       console.log(res)
+  //     }
+  //     window.alert(`${res.message}\nSorry to see you go, ${user.name}`)
+  //     handleLogOut()
+  //     navigate('/register')
+  //   }
+  // }
 
   if (renderedForm.form === '') {
     return (
@@ -93,68 +106,29 @@ const AccountDetails = ({ user, handleLogOut }) => {
           >
             Update Account
           </button>
-          <button className="btn" onClick={deleteAccount}>
+          <button className="btn" onClick={() => setShowDelete(true)}>
             Delete Account
           </button>
+          <DeleteAccount
+            onClose={() => setShowDelete(false)}
+            user={user}
+            show={showDelete}
+            handleLogOut={handleLogOut}
+          />
         </div>
       </div>
     )
   } else if (renderedForm.form === 'updateAccount') {
     return (
-      <div className="account-container">
-        <div>Update Account</div>
-        <form className="form-container" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            onChange={handleChange}
-            value={updateFormValues.name}
-            placeholder="New User Name"
-            id="updateName-input"
-            name="name"
-          />
-          <input
-            type="text"
-            onChange={handleChange}
-            value={updateFormValues.email}
-            placeholder="New Email"
-            id="updateEmail-input"
-            name="email"
-          />
-          <input
-            type="password"
-            onChange={handleChange}
-            value={updateFormValues.newPassword}
-            placeholder="New Password"
-            id="updatePassword-input"
-            name="newPassword"
-          />
-          <input
-            type="password"
-            onChange={handleChange}
-            value={updateFormValues.confirmNewPassword}
-            placeholder="Confirm New Password"
-            id="confirmUpdatePassword-input"
-            name="confirmNewPassword"
-          />
-          <input
-            type="password"
-            onChange={handleChange}
-            value={updateFormValues.password}
-            placeholder="Current Password (required)"
-            id="password-input"
-            name="password"
-            required
-          />
-
-          <button className="btn">Submit</button>
-        </form>
-        <button
-          className="btn"
-          onClick={() => setRenderedForm(inititialRenderedForm)}
-        >
-          Cancel
-        </button>
-      </div>
+      <UpdateAccount
+        user={user}
+        handleLogOut={handleLogOut}
+        // handleSubmit={handleSubmit}
+        // handleChange={handleChange}
+        // updateFormValues={updateFormValues}
+        // setRenderedForm={setRenderedForm}
+        // inititialRenderedForm={inititialRenderedForm}
+      />
     )
   }
 }
