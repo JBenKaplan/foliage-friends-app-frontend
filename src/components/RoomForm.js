@@ -38,7 +38,7 @@ const RoomForm = ({ user, afterSubmitClick }) => {
           onChange={handleChange}
           type="text"
           placeholder="Room"
-          value={room.id}
+          value={room.name}
           id="roomName"
           name="name"
         ></input>
