@@ -16,7 +16,6 @@ html {
   justify-content: start;
 }
 
-
 .protected {
   text-align: center;
 }
@@ -220,7 +219,6 @@ html {
   text-align: center;
 }
 
-
 .roomlist-container {
   margin: auto 20px;
 }
@@ -344,8 +342,10 @@ html {
   border-radius: 50%;
 }
 
-
-.plantname-text, .room-title, .details, h3 {
+.plantname-text,
+.room-title,
+.details,
+h3 {
   font-family: 'Playfair';
   color: #30463d;
   font-size: 20px;
@@ -371,7 +371,7 @@ a {
 
 .welcome-container {
   display: flex;
-  justify-content:left;
+  justify-content: left;
 }
 
 .welcome-note {
@@ -386,15 +386,17 @@ a {
 }
 .update-container {
   display: flex;
- 
 }
 
 .update-form {
   margin: 0 auto;
 }
 
-.update-plantname, .update-roomname, .update-details {
+.update-plantname,
+.update-roomname,
+.update-details {
   margin: 5px;
+
 }
 
 .account-container {
@@ -416,14 +418,7 @@ a {
   color:#013720;
   font-family: 'Playfair';
 }
-/* // Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) { ... }
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) { ... }
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) { ... }
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { ... } */
+
 
 @media screen and (max-width: 700px) {
 .header-text {
@@ -470,3 +465,21 @@ a {
 
 }
   
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #a2c3a4;
+  border: #004f2d 2px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  width: 50vw;
+}
+
