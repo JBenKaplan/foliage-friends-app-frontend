@@ -24,6 +24,7 @@ body {
 .signup-container {
   display: flex;
   flex-direction: column;
+  text-align: center;
   width: 600px;
   margin: 150px auto;
   padding: 50px 20px;
