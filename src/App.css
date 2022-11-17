@@ -66,6 +66,7 @@ html {
   margin: 50px auto;
   padding: 30px 50px;
   background-color: #a2c3a4;
+  border-radius: 10px;
 }
 
 .signin-input,

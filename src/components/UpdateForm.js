@@ -62,6 +62,16 @@ const UpdateForm = ({ user }) => {
           value={currentUpdate.name}
           className="update-plantname"
         />
+        <p>Image URL:</p>
+        <input
+          onChange={(e) => {
+            const imageValue = e.target.value
+            setUpdate({ ...currentUpdate, image: imageValue })
+          }}
+          type="text"
+          value={currentUpdate.image}
+          className="update-plantname"
+        />
         <p>Plant location:</p>
         <select
           onChange={handleChange}
