@@ -1,12 +1,11 @@
-html { 
-  background: url('./components/landingimage.png') no-repeat center center fixed; 
+html {
+  background: url('./components/landingimage.png') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
- 
- 
+
 .App {
   text-align: center;
 }
@@ -26,7 +25,6 @@ html {
   text-decoration-line: none;
   font-family: 'Playfair';
   color: rgb(58, 86, 58);
-
 }
 
 .header-text {
@@ -325,6 +323,7 @@ html {
   justify-content: center;
   background-color: #a2c3a4;
 }
+
 .btn {
   padding: 5px;
   margin: 10px auto;
@@ -366,7 +365,7 @@ nav {
 a {
   margin: 8px;
   text-decoration: none;
-  color:#1b3026;
+  color: #1b3026;
   font-family: 'Playfair';
   font-weight: 500;
   font-size: 18px;
@@ -392,36 +391,26 @@ a {
   width: 300px;
   height: 300px;
   border-radius: 50%;
-<<<<<<< HEAD
-  margin: auto auto;
-=======
   margin: 0 auto;
 }
 .update-container {
   display: flex;
->>>>>>> 1db5ea0455109c016c60b8020b22ec4378db5fc9
 }
 
 .update-form {
   margin: auto auto;
 }
 
-<<<<<<< HEAD
 .updatetext-h1 {
-  color:#013720;
+  color: #013720;
   font-family: 'Playfair';
 }
-.update-plantname, .update-roomname, .update-details {
-  margin: 5px;
-  color:#013720;
-  font-family: 'Playfair';
-=======
 .update-plantname,
 .update-roomname,
 .update-details {
   margin: 5px;
-
->>>>>>> 1db5ea0455109c016c60b8020b22ec4378db5fc9
+  color: #013720;
+  font-family: 'Playfair';
 }
 
 .account-container {
@@ -436,58 +425,56 @@ a {
   padding: 10px 15px;
   font-family: 'Playfair';
   font-size: 16px;
-  color:#004f2d;
+  color: #004f2d;
 }
 
 .account-text {
-  color:#013720;
+  color: #013720;
   font-family: 'Playfair';
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 1db5ea0455109c016c60b8020b22ec4378db5fc9
 
 .update-submitbtn {
   margin: 5px auto;
   padding: 5px 15px;
-  color:#013720;
+  color: #013720;
   font-family: 'Playfair';
 }
 
 @media screen and (max-width: 540px) {
-.header-text {
-  font-size: 16px;
-  margin-left: 5px;
-}
-.welcome-note {
-  font-size: 12px;
-}
-a {
-  font-size: 11px;
-}
-.nav {
-  margin: auto 0;
-}
-.name-text, .updatedetails-text, .update-plantname, .update-roomname, .update-details {
-  margin: 5px 20px;
-  padding: 5px auto;
-}
+  .header-text {
+    font-size: 16px;
+    margin-left: 5px;
+  }
+  .welcome-note {
+    font-size: 12px;
+  }
+  a {
+    font-size: 11px;
+  }
+  .nav {
+    margin: auto 0;
+  }
+  .name-text,
+  .updatedetails-text,
+  .update-plantname,
+  .update-roomname,
+  .update-details {
+    margin: 5px 20px;
+    padding: 5px auto;
+  }
 
-.update-form {
-  justify-content: center;
-  text-align: center;
-  width: 150px;
-
-}
-.update-submitbtn {
-  margin: 5px auto;
-  padding: 5px 15px;
-  color:#013720;
-  font-family: 'Playfair';
-  flex-direction: column;
-
-}
+  .update-form {
+    justify-content: center;
+    text-align: center;
+    width: 150px;
+  }
+  .update-submitbtn {
+    margin: 5px auto;
+    padding: 5px 15px;
+    color: #013720;
+    font-family: 'Playfair';
+    flex-direction: column;
+  }
 }
 
 @media screen and (min-width: 701px) {
@@ -498,7 +485,7 @@ a {
   a {
     margin: auto 8px;
     text-decoration: none;
-    color:#1b3026;
+    color: #1b3026;
     font-family: 'Playfair';
     font-weight: 500;
     font-size: 16px;
@@ -520,52 +507,55 @@ a {
     padding: 30px;
   }
 
-   .update-plantname, .update-roomname, .update-details {
+  .update-plantname,
+  .update-roomname,
+  .update-details {
     margin: 5px;
     padding: 10px 40px;
-    color:#004f2d;
+    color: #004f2d;
   }
   .update-container {
     justify-content: center;
   }
 }
-  
-<<<<<<< HEAD
+
 @media screen and (max-width: 420px) {
   .update-container {
     display: flex;
     flex-direction: column;
   }
- .update-image {
-  margin: 0 auto;
-  text-align: center;
-  width: 250px;
-  height: 250px;
- }
+  .update-image {
+    margin: 0 auto;
+    text-align: center;
+    width: 250px;
+    height: 250px;
+  }
 
-.update-form {
-  margin: 0 auto;
-  width: 300px;
- }
-.update-plantname, .update-roomname, .update-details {
-  padding: 5px 10px;
-}
-.update-submitbtn {
-  flex-direction: column;
-}
-.update-container {
-  justify-content: center;
-}
+  .update-form {
+    margin: 0 auto;
+    width: 300px;
+  }
+  .update-plantname,
+  .update-roomname,
+  .update-details {
+    padding: 5px 10px;
+  }
+  .update-submitbtn {
+    flex-direction: column;
+  }
+  .update-container {
+    justify-content: center;
+  }
 
-.updatetext-h1 {
-  font-size: 16px;
+  .updatetext-h1 {
+    font-size: 16px;
+  }
+  .updatedetails-text,
+  .name-text {
+    padding: 2px 20px;
+    font-size: 12px;
+  }
 }
-.updatedetails-text, .name-text {
-  padding: 2px 20px;
-  font-size: 12px;
-}
-}
-=======
 
 .modal {
   position: fixed;
@@ -583,5 +573,3 @@ a {
 .modal-content {
   width: 50vw;
 }
-
->>>>>>> 1db5ea0455109c016c60b8020b22ec4378db5fc9
