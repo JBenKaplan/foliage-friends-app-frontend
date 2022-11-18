@@ -44,7 +44,7 @@ const RoomForm = ({ user }) => {
   }, [user])
 
   return (
-    <div className="mainroom-formcontainer">
+    <div className="update-room-container">
       <form className="roomform-container">
         <h4 className="roomform-text">-Current name: {room?.name}-</h4>
         <input

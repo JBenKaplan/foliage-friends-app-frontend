@@ -30,7 +30,7 @@ const RoomForm = ({ user, afterSubmitClick }) => {
   }
 
   return (
-    <div className="mainroom-formcontainer">
+    <div className="main-room-container">
       <form className="roomform-container" onSubmit={submitHandleClick}>
         <h4 className="roomform-text">-Create New Room-</h4>
         <input

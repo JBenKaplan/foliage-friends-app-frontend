@@ -139,15 +139,16 @@ const AccountDetails = ({ user, handleLogOut }) => {
             name="password"
             required
           />
-
-          <button className="btn">Submit</button>
+          <div className="account">
+            <button className="btn">Submit</button>
+            <button
+              className="btn"
+              onClick={() => setRenderedForm(inititialRenderedForm)}
+            >
+              Cancel
+            </button>
+          </div>
         </form>
-        <button
-          className="btn"
-          onClick={() => setRenderedForm(inititialRenderedForm)}
-        >
-          Cancel
-        </button>
       </div>
     )
   }

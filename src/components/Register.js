@@ -113,9 +113,9 @@ const Register = () => {
             className="signup-btn"
           >
             Register
-          </button>
-        </form>
-      </div>
+            </button>
+          </form>
+        </div>
     )
   }
 }
