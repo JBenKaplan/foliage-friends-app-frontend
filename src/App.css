@@ -448,6 +448,14 @@ a {
 .update-roomname,
 .update-details {
   margin: 5px;
+  color:#1b3026;
+}
+
+.account-container {
+  display: flex;
+  justify-content: center;
+  height: 300px;
+  margin: 100px;
   color: #013720;
   font-family: 'Playfair';
 }
@@ -489,35 +497,37 @@ a {
   color:#013720;
 }
 
-
-
-
-
-
-
-
 @media screen and (max-width: 540px) {
-  .header-text {
-    font-size: 16px;
-    margin-left: 5px;
-  }
-  .welcome-note {
-    font-size: 12px;
-  }
-  a {
-    font-size: 11px;
-  }
-  .nav {
-    margin: auto 0;
-  }
-  .name-text,
-  .updatedetails-text,
-  .update-plantname,
-  .update-roomname,
-  .update-details {
-    margin: 5px 20px;
-    padding: 5px auto;
-  }
+.header-text {
+  font-size: 16px;
+  margin-left: 5px;
+}
+.welcome-note {
+  font-size: 12px;
+}
+a {
+  font-size: 11px;
+}
+.nav {
+  margin: auto 0;
+  align-self: center;
+}
+.name-text, .updatedetails-text, .update-plantname, .update-roomname, .update-details {
+  margin: 5px 20px;
+  padding: 5px auto;
+}
+.update-form {
+  justify-content: center;
+  text-align: center;
+  width: 150px;
+}
+.update-submitbtn {
+  display: block;
+  margin: 5px auto;
+  padding: 5px 15px;
+  color:#013720;
+  font-family: 'Playfair';
+  flex-direction: column;
 
   .update-form {
     justify-content: center;
@@ -574,6 +584,16 @@ a {
     justify-content: center;
   }
 }
+  
+@media screen and (max-width: 390px) {
+  .header-text {
+    font-size: 14px;
+  }
+  .welcome-note {
+    font-size: 11px;
+    font-weight: 100;
+  }
+}
 
 @media screen and (max-width: 420px) {
   .update-container {
@@ -586,31 +606,30 @@ a {
     width: 250px;
     height: 250px;
   }
-
-  .update-form {
-    margin: 0 auto;
-    width: 300px;
-  }
-  .update-plantname,
-  .update-roomname,
-  .update-details {
-    padding: 5px 10px;
-  }
-  .update-submitbtn {
-    flex-direction: column;
-  }
-  .update-container {
-    justify-content: center;
-  }
-
-  .updatetext-h1 {
-    font-size: 16px;
-  }
-  .updatedetails-text,
-  .name-text {
-    padding: 2px 20px;
-    font-size: 12px;
-  }
+.update-form {
+  margin: 0 auto;
+  width: 250px;
+ }
+.update-plantname, .update-roomname, .update-details {
+  padding: 5px 10px;
+  text-align: center;
+  width: 150px;
+}
+.update-submitbtn {
+  flex-direction: column;
+  padding: 5px 15px;
+}
+.update-container {
+  justify-content: center;
+}
+.updatetext-h1 {
+  font-size: 16px;
+  color:#1b3026;
+}
+.updatedetails-text, .name-text {
+  padding: 2px 20px;
+  font-size: 12px;
+}
 }
 
 .modal {
@@ -633,3 +652,4 @@ a {
 #roomName{
   width: 200px;
 }
+
