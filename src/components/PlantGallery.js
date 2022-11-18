@@ -32,11 +32,13 @@ const PlantGallery = ({ user }) => {
     panelDisplay = ''
   }
 
-  const getAllPlants = async () => {
+  const getAllPlantsByUser = async () => {
     // console.log(room)
-    const res = await Client.get(`/plants/all`)
-    // console.log(res.data)
-    setAllPlants(res.data)
+    if (user) {
+      const res = await Client.get(`/plants/user/${user.id}`)
+      console.log(res.data)
+      setAllPlants(res.data)
+    }
   }
 
   const RoomList = async () => {
@@ -47,7 +49,7 @@ const PlantGallery = ({ user }) => {
   }
 
   useEffect(() => {
-    getAllPlants()
+    getAllPlantsByUser()
     RoomList()
     // initial render the user object is empty
     // after checkToken api call, the user will have data
@@ -78,7 +80,7 @@ const PlantGallery = ({ user }) => {
             user={user}
             roomList={rooms}
             getRooms={RoomList}
-            getAllPlants={getAllPlants}
+            getAllPlants={getAllPlantsByUser}
           />
         </div>
         <ul className="li-container">

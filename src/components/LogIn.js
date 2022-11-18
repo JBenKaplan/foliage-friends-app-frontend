@@ -5,10 +5,6 @@ import { SignInUser } from '../services/Auth'
 const LogIn = ({ setUser }) => {
   const navigate = useNavigate()
 
-  const clickSignUp = (e) => {
-    navigate('/register')
-  }
-
   const initialState = { email: '', password: '' }
 
   const [formValues, setFormValues] = useState(initialState)
@@ -34,7 +30,7 @@ const LogIn = ({ setUser }) => {
   return (
     <div className="login-container">
       <div className="button-form-container">
-        <button onClick={clickSignUp} className="signup-btn">
+        <button onClick={() => navigate('/register')} className="signup-btn">
           Register
         </button>
 

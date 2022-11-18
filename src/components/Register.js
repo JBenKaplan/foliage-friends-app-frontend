@@ -49,73 +49,77 @@ const Register = () => {
   if (!formValues.passwordsMatch) {
     return (
       <div>
-        <div className="signup-container">
-          <h3>Password and Confirm Password Must match</h3>
-          <button
-            className="btn"
-            onClick={() => {
-              setFormValues(initialState)
-            }}
-          >
-            Try Again
-          </button>
-        </div>
+        <h3>Password and Confirm Password Must match</h3>
+        <button
+          className="btn"
+          onClick={() => {
+            setFormValues(initialState)
+          }}
+        >
+          Try Again
+        </button>
       </div>
     )
   } else {
     return (
-      <div>
-        <form className="signup-container" onSubmit={handleSubmit}>
-          <input
-            onChange={handleChange}
-            type="text"
-            placeholder="name"
-            name="name"
-            className="signup-input"
-            value={formValues.name}
-            required
-          ></input>
-          <input
-            type="text"
-            placeholder="email"
-            name="email"
-            className="signup-input"
-            onChange={handleChange}
-            value={formValues.email}
-            required
-          ></input>
-          <input
-            type="password"
-            placeholder="password"
-            name="password"
-            className="signup-input"
-            onChange={handleChange}
-            value={formValues.password}
-            required
-          ></input>
-          <input
-            type="password"
-            placeholder="confirm password"
-            name="confirmPassword"
-            className="signup-input"
-            onChange={handleChange}
-            value={formValues.confirmPassword}
-            required
-          ></input>
+      <div className="signUp-container">
+        <div className="button-form-container">
+          <button onClick={() => navigate('/login')} className="signup-btn">
+            Sign In
+          </button>
+          <form className="signup-container" onSubmit={handleSubmit}>
+            <h3 className="signin-text">Sign Up</h3>
+            <input
+              onChange={handleChange}
+              type="text"
+              placeholder="name"
+              name="name"
+              className="signup-input"
+              value={formValues.name}
+              required
+            ></input>
+            <input
+              type="text"
+              placeholder="email"
+              name="email"
+              className="signup-input"
+              onChange={handleChange}
+              value={formValues.email}
+              required
+            ></input>
+            <input
+              type="password"
+              placeholder="password"
+              name="password"
+              className="signup-input"
+              onChange={handleChange}
+              value={formValues.password}
+              required
+            ></input>
+            <input
+              type="password"
+              placeholder="confirm password"
+              name="confirmPassword"
+              className="signup-input"
+              onChange={handleChange}
+              value={formValues.confirmPassword}
+              required
+            ></input>
 
-          <button
-            disabled={
-              !formValues.email &&
-              !formValues.name &&
-              !formValues.password &&
-              !formValues.confirmPassword
-            }
-            className="signup-btn"
-          >
-            Register
+            <button
+              disabled={
+                !formValues.email &&
+                !formValues.name &&
+                !formValues.password &&
+                !formValues.confirmPassword
+              }
+              className="signup-btn"
+            >
+              Register
             </button>
           </form>
         </div>
+      </div>
     )
   }
 }

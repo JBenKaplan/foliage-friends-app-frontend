@@ -22,16 +22,18 @@ const DeletePlant = (props) => {
   return (
     <div className="modal">
       <div className="modal-content">
-        <h3>Are you sure you would like to delete this plant?</h3>
-        <button className="noDeletePlant" onClick={() => props.onClose()}>
-          No
-        </button>
-        <button
-          className="yesDeletePlant"
-          onClick={() => RemovePlant(props.plant.id)}
-        >
-          Yes
-        </button>
+        <p>Are you sure you would like to delete this plant?</p>
+        <div className="modalButtons-container">
+          <button className="modalButtons" onClick={() => props.onClose()}>
+            No
+          </button>
+          <button
+            className="modalButtons"
+            onClick={() => RemovePlant(props.plant.id)}
+          >
+            Yes
+          </button>
+        </div>
       </div>
     </div>
   )

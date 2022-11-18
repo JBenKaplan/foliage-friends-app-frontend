@@ -23,17 +23,19 @@ const DeleteAccount = (props) => {
   return (
     <div className="modal">
       <div className="modal-content">
-        <h3>Are you sure you would like to delete your account?</h3>
-        <h3>You will lose all plants and rooms.</h3>
-        <button className="noDeleteAccount" onClick={() => props.onClose()}>
-          No
-        </button>
-        <button
-          className="yesDeleteAccount"
-          onClick={() => RemoveAccount(props.user.id)}
-        >
-          Yes
-        </button>
+        <p>Are you sure you would like to delete your account?</p>
+        <p>You will lose all plants and rooms.</p>
+        <div className="modalButtons-container">
+          <button className="modalButtons" onClick={() => props.onClose()}>
+            No
+          </button>
+          <button
+            className="modalButtons"
+            onClick={() => RemoveAccount(props.user.id)}
+          >
+            Yes
+          </button>
+        </div>
       </div>
     </div>
   )

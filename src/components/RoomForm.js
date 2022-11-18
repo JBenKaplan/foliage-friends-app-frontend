@@ -30,10 +30,11 @@ const RoomForm = ({ user, afterSubmitClick }) => {
   }
 
   return (
-    <div className="main-room-container">
+    <div className="mainroom-container">
       <form className="roomform-container" onSubmit={submitHandleClick}>
         <h4 className="roomform-text">-Create New Room-</h4>
         <input
+          className="room-plant-input"
           onChange={handleChange}
           type="text"
           placeholder="New Room Name (required)"
@@ -43,14 +44,14 @@ const RoomForm = ({ user, afterSubmitClick }) => {
           required
         ></input>
         <div className="formbtns">
+          <button type="submit" value="value" className="roomform-submitbtn">
+            Submit
+          </button>
           <button
             onClick={() => navigate('/editrooms')}
             className="roomform-submitbtn"
           >
             Edit Rooms
-          </button>
-          <button type="submit" value="value" className="roomform-submitbtn">
-            Submit
           </button>
         </div>
       </form>
