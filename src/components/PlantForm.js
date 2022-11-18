@@ -56,6 +56,7 @@ const PlantForm = ({ user, getAllPlants, roomList }) => {
     <div className="mainroom-container">
       <form className="form-container">
         <select
+          className="select-room"
           onChange={handleChange}
           name="roomId"
           value={plantFormValues.roomId}
