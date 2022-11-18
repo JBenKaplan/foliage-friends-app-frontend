@@ -2,8 +2,11 @@ import { useParams } from 'react-router'
 import { useEffect, useState } from 'react'
 import Client from '../services/api'
 import { useNavigate } from 'react-router'
+import { GetRooms } from '../services/Auth'
 
-const UpdateForm = () => {
+const UpdateForm = ({ user }) => {
+  const [rooms, setRooms] = useState([])
+
   const navigate = useNavigate()
   const { id } = useParams()
   const [currentUpdate, setUpdate] = useState({})
@@ -13,6 +16,16 @@ const UpdateForm = () => {
   //get data
   //set current value, put current state
   // assign current state in form
+  const RoomList = async () => {
+    let roomslist = await GetRooms(user)
+    setRooms(roomslist)
+  }
+  const handleChange = (e) => {
+    setUpdate({
+      ...currentUpdate,
+      [e.target.name]: e.target.value
+    })
+  }
 
   useEffect(() => {
     const getData = async () => {
@@ -22,6 +35,7 @@ const UpdateForm = () => {
         setUpdate(response.data)
       }
     }
+    RoomList()
     getData()
   }, [])
 
@@ -48,7 +62,28 @@ const UpdateForm = () => {
           value={currentUpdate.name}
           className="update-plantname"
         />
-
+        <p>Image URL:</p>
+        <input
+          onChange={(e) => {
+            const imageValue = e.target.value
+            setUpdate({ ...currentUpdate, image: imageValue })
+          }}
+          type="text"
+          value={currentUpdate.image}
+          className="update-plantname"
+        />
+        <p>Plant location:</p>
+        <select
+          onChange={handleChange}
+          name="roomId"
+          value={currentUpdate.roomId}
+        >
+          {rooms.map((room) => (
+            <option name="roomId" value={room.id} key={room.id}>
+              {room.name}
+            </option>
+          ))}
+        </select>
         <p className="updatedetails-text">Details:</p>
         <input
           onChange={(e) => {
@@ -59,7 +94,6 @@ const UpdateForm = () => {
           value={currentUpdate.details}
           className="update-details"
         />
-
         <button onClick={submitBtn} className="update-submitbtn">
           Submit
         </button>

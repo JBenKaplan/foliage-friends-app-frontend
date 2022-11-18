@@ -6,6 +6,7 @@ export const SignInUser = async (data) => {
     localStorage.setItem('token', res.data.token)
     return res.data.user
   } catch (error) {
+    return 'Login Error'
     throw error
   }
 }
@@ -15,6 +16,7 @@ export const RegisterUser = async (data) => {
     const res = await Client.post('/users/register', data)
     return res.data
   } catch (error) {
+    console.log(error)
     throw error
   }
 }
