@@ -89,6 +89,7 @@ const AccountDetails = ({ user, handleLogOut }) => {
             onClose={() => setShowDelete(false)}
             user={user}
             show={showDelete}
+            handleLogOut={handleLogOut}
           />
         </div>
       </div>
