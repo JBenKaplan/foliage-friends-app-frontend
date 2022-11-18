@@ -259,7 +259,9 @@ html {
   flex-direction: column;
   align-items: center;
   width: 300px;
-  margin: auto auto;
+  margin: 10px auto;
+  border: 1px solid black;
+
 }
 
 .update-room-container {
@@ -601,4 +603,8 @@ a {
 
 .modal-content {
   width: 50vw;
+}
+
+#roomName{
+  width: 200px;
 }

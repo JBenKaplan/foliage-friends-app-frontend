@@ -35,11 +35,13 @@ const PlantForm = ({ user, getAllPlants, roomList }) => {
 
   return (
     <div className="mainroom-container">
-      <form className="form-container">
+      <form className="form-container" onSubmit={submitHandleClick}>
+        <h4 className="roomform-text">-Create New Plant-</h4>
         <select
           onChange={handleChange}
           name="roomId"
           value={plantFormValues.roomId}
+          required
         >
           <option value="" disabled>
             - Select Room -
@@ -55,7 +57,7 @@ const PlantForm = ({ user, getAllPlants, roomList }) => {
           type="text"
           src="./uploadimage.png"
           value={plantFormValues.image}
-          placeholder="upload image"
+          placeholder="image url"
           id="image-input"
           name="image"
         />
@@ -64,9 +66,10 @@ const PlantForm = ({ user, getAllPlants, roomList }) => {
           type="text"
           onChange={handleChange}
           value={plantFormValues.name}
-          placeholder="Plant name"
+          placeholder="Plant name (required)"
           id="plantname-input"
           name="name"
+          required
         />
 
         <textarea
@@ -77,14 +80,7 @@ const PlantForm = ({ user, getAllPlants, roomList }) => {
           id="description-input"
           name="details"
         ></textarea>
-        <button
-          onClick={submitHandleClick}
-          type="submit"
-          value="value"
-          className="roomform-submitbtn"
-        >
-          Submit
-        </button>
+        <button className="roomform-submitbtn">Submit</button>
       </form>
     </div>
   )
