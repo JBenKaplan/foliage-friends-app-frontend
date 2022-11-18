@@ -20,10 +20,15 @@ const LogIn = ({ setUser }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const payload = await SignInUser(formValues)
-    console.log(payload)
-    setUser(payload)
-    setFormValues(initialState)
-    navigate('/plantgallery')
+    if (payload === 'Login Error') {
+      alert(
+        `${payload}\nMake sure your email and password are the same ones you used to register`
+      )
+    } else {
+      setUser(payload)
+      setFormValues(initialState)
+      navigate('/plantgallery')
+    }
   }
 
   return (

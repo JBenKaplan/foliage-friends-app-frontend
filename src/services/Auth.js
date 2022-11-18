@@ -3,9 +3,15 @@ import Client from './api'
 export const SignInUser = async (data) => {
   try {
     const res = await Client.post('/users/login', data)
+    // if (res.data.token) {
     localStorage.setItem('token', res.data.token)
     return res.data.user
+    // }
+    // return res.data.msg
   } catch (error) {
+    return 'Login Error'
+    // return res.data.msg
+    // console.log('A')
     throw error
   }
 }
@@ -15,6 +21,7 @@ export const RegisterUser = async (data) => {
     const res = await Client.post('/users/register', data)
     return res.data
   } catch (error) {
+    console.log(error)
     throw error
   }
 }
