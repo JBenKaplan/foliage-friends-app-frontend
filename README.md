@@ -18,15 +18,21 @@
 
 ---
 
+![Login](/assets/folige-friends-login.png)
+![Plantgallery](/assets/foliage-friends-plantgallery.png)
+![Mobile](/assets/foliage-friends-mobile.png)
+
+---
+
 ## Overview
 
 ---
 
-This application will allow you to setup rooms and add in your leafy green friends to keep track of them and how they're doing.
+This application will allow you to setup rooms and add in your leafy green friends to keep track of them.
 
 You can find our development progress in our [Trello](https://trello.com/b/gHbLKWLd/foliage-friends-say-aloe-to-my-little-friends).
 
-To use our app, follow the [link]() to our deployed site.
+To use our app, follow the [link](https://foliage-friends.herokuapp.com/) to our deployed site.
 
 ## Getting Started
 
@@ -36,17 +42,22 @@ To use our app, follow the [link]() to our deployed site.
 - Add in rooms with any specific details you wish to mention.
 - Bring your plants into the virtual world with their information as well as pictures to help keep track of them.
 - Set reminders or notes to remind yourself of how best to take care of your plant.
+- For more details about the backend API, follow this [link](https://github.com/JBenKaplan/foliage-friends-app-backend) to view the repo
 
 ## Technologies Used
 
 ---
 
-- Development
+- Frontend Development
   - HTML
   - CSS
   - JS
   - React
   - Node JS
+- Backend Development
+  - Postgresql
+  - Sequelize
+  - Express
 - Deployment
   - Heroku
 
@@ -54,7 +65,13 @@ To use our app, follow the [link]() to our deployed site.
 
 ---
 
-- [ ]
+- [ ] Transfer plants when rooms are deleted
+- [ ] View other users plant lists
+- [ ] Schedule watering alert
+- [ ] User provided images - (upload)
+- [ ] Plant identification by image - (3rd party API)
+- [ ] Update user interaction alert windows
+- [ ] Forgot password function
 
 ## Credits
 
