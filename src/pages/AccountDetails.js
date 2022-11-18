@@ -71,25 +71,6 @@ const AccountDetails = ({ user, handleLogOut }) => {
     }
   }
 
-  // still not cascading to plants or rooms of the user
-  // const deleteAccount = async (e) => {
-  //   e.preventDefault()
-  //   if (
-  //     window.confirm(
-  //       `Are you sure you want to delete you account?\nYou will lose all plants and rooms.`
-  //     )
-  //   ) {
-  //     // JAL - wanted to do this as password protected, but delete requests do not allow req.body, so I wasn't sure where to put the pw... Still, token is stripped and verified prior to user deletion
-  //     let res = await DeleteAccount(user.id)
-  //     if (res) {
-  //       console.log(res)
-  //     }
-  //     window.alert(`${res.message}\nSorry to see you go, ${user.name}`)
-  //     handleLogOut()
-  //     navigate('/register')
-  //   }
-  // }
-
   if (renderedForm.form === '') {
     return (
       <div className="account-container">

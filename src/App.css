@@ -241,6 +241,7 @@ html {
   align-items: center;
   width: 300px;
   margin: 10px auto;
+  border: 1px solid black;
 }
 
 .mainroom-formcontainer {
@@ -572,4 +573,8 @@ a {
 
 .modal-content {
   width: 50vw;
+}
+
+#roomName{
+  width: 200px;
 }

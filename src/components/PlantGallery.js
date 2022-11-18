@@ -40,8 +40,10 @@ const PlantGallery = ({ user }) => {
   }
 
   const RoomList = async () => {
-    let roomslist = await GetRooms(user)
-    setRooms(roomslist)
+    if (user) {
+      let roomslist = await GetRooms(user)
+      setRooms(roomslist)
+    }
   }
 
   useEffect(() => {
@@ -59,15 +61,17 @@ const PlantGallery = ({ user }) => {
         <div className="addplantbtn-container">
           {/* <button className="addroom-btn">Add Room</button> */}
           <button onClick={handleClick} className="addplant-btn">
-            Add
+            Add Rooms or Plants
           </button>
         </div>
         <div className={`dropdown-panel ${panelDisplay}`}>
           <RoomForm
             user={user}
             afterSubmitClick={() => {
-              let moreRoom = RoomList()
-              setRooms([...moreRoom])
+              RoomList()
+              // let moreRoom = RoomList()
+              // console.log(moreRoom)
+              // setRooms([...moreRoom])
             }}
           />
           <PlantForm
