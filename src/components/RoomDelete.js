@@ -2,7 +2,6 @@ import React from 'react'
 import Client from '../services/api'
 
 const RoomDelete = (props) => {
-  console.log(props)
   if (!props.show) {
     return null
   }

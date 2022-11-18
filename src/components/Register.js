@@ -22,14 +22,20 @@ const Register = () => {
     if (formValues.password !== formValues.confirmPassword) {
       setFormValues({ ...formValues, passwordsMatch: false })
     } else {
-      let registerConfirmation = await RegisterUser({
+      let registerResponse = await RegisterUser({
         name: formValues.name,
         email: formValues.email,
         password: formValues.password
       })
-      if (typeof registerConfirmation === 'string') {
+      console.log(registerResponse)
+      if (registerResponse === 'That Email Already Exists') {
         alert(
-          `${registerConfirmation}\nPlease try signing in with that email or use a different email to Register`
+          `${registerResponse}\nPlease try signing in with that email or use a different email to register`
+        )
+        setFormValues(initialState)
+      } else if (registerResponse === 'Invalid Email Format') {
+        alert(
+          `${registerResponse}\nEnsure that email follows standard format: example@email.com`
         )
         setFormValues(initialState)
       } else {
@@ -99,17 +105,17 @@ const Register = () => {
 
           <button
             disabled={
-              !formValues.email
-              // !formValues.email ||
-              // (!formValues.password &&
-              //   formValues.confirmPassword === formValues.password)
+              !formValues.email &&
+              !formValues.name &&
+              !formValues.password &&
+              !formValues.confirmPassword
             }
             className="signup-btn"
           >
-            Sign Up
-          </button>
-        </form>
-      </div>
+            Register
+            </button>
+          </form>
+        </div>
     )
   }
 }

@@ -1,8 +1,5 @@
 import { useState } from 'react'
 import Client from '../services/api'
-import { useNavigate } from 'react-router'
-// import { GetRooms } from '../services/Auth'
-// import { useParams } from 'react-router-dom'
 
 const PlantForm = ({ user, getAllPlants, roomList }) => {
   const formValues = {
@@ -13,19 +10,16 @@ const PlantForm = ({ user, getAllPlants, roomList }) => {
     roomId: ''
   }
 
-  // const [rooms, setRooms] = useState(roomList)
   const [plantFormValues, setPlantFormValues] = useState(formValues)
-  const navigate = useNavigate()
 
   const submitHandleClick = async (e) => {
     e.preventDefault()
     try {
-      let res = await Client.post('/plants/create', {
+      await Client.post('/plants/create', {
         plantFormValues
       })
       setPlantFormValues(formValues)
       getAllPlants()
-      console.log(res)
     } catch (error) {
       throw error
     }
@@ -39,27 +33,16 @@ const PlantForm = ({ user, getAllPlants, roomList }) => {
     })
   }
 
-  // //useeffect get rooms
-  // useEffect(() => {
-  //   const RoomList = async () => {
-  //     let roomslist = await GetRooms(user)
-  //     setRooms(roomslist)
-  //   }
-  //   RoomList()
-  // }, [])
-
-  // const clickImage = (e) => {
-  //   navigate('/plantdetails')
-  // }
-
   return (
     <div className="mainroom-container">
-      <form className="form-container">
+      <form className="form-container" onSubmit={submitHandleClick}>
+        <h4 className="roomform-text">-Create New Plant-</h4>
         <select
           className="select-room"
           onChange={handleChange}
           name="roomId"
           value={plantFormValues.roomId}
+          required
         >
           <option value="" disabled>
             - Select Room -
@@ -72,11 +55,10 @@ const PlantForm = ({ user, getAllPlants, roomList }) => {
         </select>
         <input
           onChange={handleChange}
-          // onClick={clickImage}
           type="text"
           src="./uploadimage.png"
           value={plantFormValues.image}
-          placeholder="upload image"
+          placeholder="image url"
           id="image-input"
           name="image"
         />
@@ -85,9 +67,10 @@ const PlantForm = ({ user, getAllPlants, roomList }) => {
           type="text"
           onChange={handleChange}
           value={plantFormValues.name}
-          placeholder="Plant name"
+          placeholder="Plant name (required)"
           id="plantname-input"
           name="name"
+          required
         />
 
         <textarea
@@ -98,14 +81,7 @@ const PlantForm = ({ user, getAllPlants, roomList }) => {
           id="description-input"
           name="details"
         ></textarea>
-        <button
-          onClick={submitHandleClick}
-          type="submit"
-          value="value"
-          className="roomform-submitbtn"
-        >
-          Submit
-        </button>
+        <button className="roomform-submitbtn">Submit</button>
       </form>
     </div>
   )

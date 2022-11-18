@@ -1,12 +1,11 @@
-html { 
-  background: url('./components/landingimage.png') no-repeat center center fixed; 
+html {
+  background: url('./components/landingimage.png') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
- 
- 
+
 .App {
   text-align: center;
 }
@@ -26,7 +25,6 @@ header {
   text-decoration-line: none;
   font-family: 'Playfair';
   color: rgb(58, 86, 58);
-
 }
 
 .header-text {
@@ -41,24 +39,47 @@ header {
   background-color: #7680769e;
 }
 
-.signup-container {
+/* .register-container,
+.signin-container {
   display: flex;
   flex-direction: column;
   text-align: center;
-  width: 600px;
-  margin: 150px auto;
+  margin: 50px auto;
   padding: 50px 20px;
   background-color: #a2c3a4;
+} */
+
+/* .login-container {
+  text-align: center;
+  margin: 0 auto;
+} */
+
+.signup-container,
+.login-container {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.signin-container,
+.register-container {
+  display: flex;
+  flex-direction: column;
+  margin: 50px auto;
+  padding: 30px 50px;
+  background-color: #a2c3a4;
+  border-radius: 10px;
+}
+
+.signin-input,
+.signup-input {
+  margin: 8px auto;
+  padding: 8px 30px;
+  color: rgb(73, 70, 70);
 }
 .signup-input,
 .signup-btn {
   margin: 10px auto;
   padding: 5px 50px;
-}
-
-.login-container {
-  text-align: center;
-  margin: 0 auto;
 }
 
 .button-form-container {
@@ -72,20 +93,6 @@ header {
   font-size: 18px;
   padding: 8px 20px;
   margin: auto;
-}
-
-.signin-container {
-  display: flex;
-  flex-direction: column;
-  margin: 50px auto;
-  padding: 30px 50px;
-  background-color: #a2c3a4;
-}
-
-.signin-input {
-  margin: 8px auto;
-  padding: 8px 30px;
-  color: rgb(73, 70, 70);
 }
 
 .submit-btn {
@@ -143,13 +150,16 @@ header {
 }
 
 .plants {
-  justify-content: center;
-  border: #1b3529 2px solid;
+  border: 1px solid rgba(121, 143, 132, 0.596);
+  background-color: #bccfbe;
   display: flex;
   align-items: center;
-  width: 90vw;
+  justify-content: center;
+  min-width: 60vw;
+  max-width: 90vw;
   margin: 0 auto;
   flex-flow: wrap row;
+  border-radius: 10px;
 }
 
 .rooms {
@@ -172,12 +182,14 @@ header {
 
 }
 .roomList {
+  padding: 0 0 20px 0;
   display: flex;
   flex-direction: column;
   width: 200px;
 }
 
 .rooms-container {
+  padding: 0 0 20px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -185,8 +197,13 @@ header {
 
 .roomInfo {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.editRoomButtons {
+  display: flex;
 }
 
 .removeRoomBtn,
@@ -233,6 +250,7 @@ header {
   background-color: #a2c3a4;
   margin: 0 auto;
   text-align: center;
+  padding: 20px;
 }
 
 .roomlist-container {
@@ -250,13 +268,15 @@ header {
   align-items: center;
   width: 300px;
   margin: 10px auto;
+  border: 1px solid black;
+
 }
 
-.mainroom-formcontainer {
-  width: 700px;
-  height: 150px;
-  margin: auto auto;
-  background-color: #bccfbe;
+.update-room-container {
+  background-color: #a2c3a4;
+  display: flex;
+  justify-content: center;
+  height: 200px;
 }
 .roomform-text {
   margin: 10px auto;
@@ -274,12 +294,23 @@ header {
   display: flex;
   justify-content: center;
   background-color: #bccfbe;
-  border: none;
+  border-radius: 10px;
+}
+.main-room-container {
+  width: 700px;
+  height: 170px;
+  border: 1px solid rgba(121, 143, 132, 0.596);
+  margin: 0 auto 30px auto;
+  display: flex;
+  justify-content: center;
+  background-color: #bccfbe;
+  border-radius: 10px;
 }
 
 #room-input,
 #plantname-input,
-#description-input {
+#description-input,
+.roomNameInput {
   font-family: 'Playfair';
   padding: 10px 15px;
   margin: 6px 30px;
@@ -326,15 +357,13 @@ header {
 }
 
 .account-container {
-  text-align: center;
   display: flex;
+  text-align: center;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   background-color: #a2c3a4;
-}
-.btn {
-  padding: 5px;
-  margin: 10px auto;
+  padding: 20px;
 }
 
 .rooms-container {
@@ -370,7 +399,7 @@ nav {
 a {
   margin: auto 6px;
   text-decoration: none;
-  color:#1b3026;
+  color: #1b3026;
   font-family: 'Playfair';
   font-weight: 500;
   font-size: 18px;
@@ -404,7 +433,15 @@ a {
 }
 
 .update-form {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
   margin: auto auto;
+}
+
+.updatetext-h1 {
+  color: #013720;
+  font-family: 'Playfair';
 }
 
 .update-plantname,
@@ -412,7 +449,6 @@ a {
 .update-details {
   margin: 5px;
   color:#1b3026;
-
 }
 
 .account-container {
@@ -420,18 +456,25 @@ a {
   justify-content: center;
   height: 300px;
   margin: 100px;
+  color: #013720;
+  font-family: 'Playfair';
 }
 
-.btn {
+/* .btn {
   margin: 40px 20px;
   padding: 10px 15px;
   font-family: 'Playfair';
   font-size: 16px;
-  color:#004f2d;
+  color: #004f2d;
+} */
+
+.btn {
+  padding: 5px;
+  margin: 10px auto;
 }
 
 .account-text {
-  color:#013720;
+  color: #013720;
   font-family: 'Playfair';
 }
 
@@ -439,7 +482,7 @@ a {
   display: block;
   margin: 5px auto;
   padding: 5px 15px;
-  color:#013720;
+  color: #013720;
   font-family: 'Playfair';
 }
 
@@ -453,13 +496,6 @@ a {
 .updatetext-h1 {
   color:#013720;
 }
-
-
-
-
-
-
-
 
 @media screen and (max-width: 540px) {
 .header-text {
@@ -480,12 +516,10 @@ a {
   margin: 5px 20px;
   padding: 5px auto;
 }
-
 .update-form {
   justify-content: center;
   text-align: center;
   width: 150px;
-
 }
 .update-submitbtn {
   display: block;
@@ -495,7 +529,18 @@ a {
   font-family: 'Playfair';
   flex-direction: column;
 
-}
+  .update-form {
+    justify-content: center;
+    text-align: center;
+    width: 150px;
+  }
+  .update-submitbtn {
+    margin: 5px auto;
+    padding: 5px 15px;
+    color: #013720;
+    font-family: 'Playfair';
+    flex-direction: column;
+  }
 }
 
 @media screen and (min-width: 701px) {
@@ -506,7 +551,7 @@ a {
   a {
     margin: auto 8px;
     text-decoration: none;
-    color:#1b3026;
+    color: #1b3026;
     font-family: 'Playfair';
     font-weight: 500;
     font-size: 16px;
@@ -528,10 +573,12 @@ a {
     padding: 30px;
   }
 
-   .update-plantname, .update-roomname, .update-details {
+  .update-plantname,
+  .update-roomname,
+  .update-details {
     margin: 5px;
     padding: 10px 40px;
-    color:#004f2d;
+    color: #004f2d;
   }
   .update-container {
     justify-content: center;
@@ -539,7 +586,6 @@ a {
 }
   
 @media screen and (max-width: 390px) {
-
   .header-text {
     font-size: 14px;
   }
@@ -547,17 +593,19 @@ a {
     font-size: 11px;
     font-weight: 100;
   }
+}
+
+@media screen and (max-width: 420px) {
   .update-container {
     display: flex;
     flex-direction: column;
   }
- .update-image {
-  margin: 0 auto;
-  text-align: center;
-  width: 250px;
-  height: 250px;
- }
-
+  .update-image {
+    margin: 0 auto;
+    text-align: center;
+    width: 250px;
+    height: 250px;
+  }
 .update-form {
   margin: 0 auto;
   width: 250px;
@@ -571,11 +619,9 @@ a {
   flex-direction: column;
   padding: 5px 15px;
 }
-
 .update-container {
   justify-content: center;
 }
-
 .updatetext-h1 {
   font-size: 16px;
   color:#1b3026;
@@ -601,5 +647,9 @@ a {
 
 .modal-content {
   width: 50vw;
+}
+
+#roomName{
+  width: 200px;
 }
 
