@@ -38,7 +38,7 @@ const PlantForm = ({ user, getAllPlants, roomList }) => {
       <form className="form-container" onSubmit={submitHandleClick}>
         <h4 className="roomform-text">-Create New Plant-</h4>
         <select
-          className="select-room"
+          className="room-plant-input"
           onChange={handleChange}
           name="roomId"
           value={plantFormValues.roomId}
@@ -54,6 +54,7 @@ const PlantForm = ({ user, getAllPlants, roomList }) => {
           ))}
         </select>
         <input
+          className="room-plant-input"
           onChange={handleChange}
           type="text"
           src="./uploadimage.png"
@@ -64,6 +65,7 @@ const PlantForm = ({ user, getAllPlants, roomList }) => {
         />
 
         <input
+          className="room-plant-input"
           type="text"
           onChange={handleChange}
           value={plantFormValues.name}
@@ -74,6 +76,7 @@ const PlantForm = ({ user, getAllPlants, roomList }) => {
         />
 
         <textarea
+          className="room-plant-input"
           onChange={handleChange}
           type="text"
           value={plantFormValues.details}

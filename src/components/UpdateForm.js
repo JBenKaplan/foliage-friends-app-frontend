@@ -77,6 +77,7 @@ const UpdateForm = ({ user }) => {
           onChange={handleChange}
           name="roomId"
           value={currentUpdate.roomId}
+          className="roomDropDown"
         >
           {rooms.map((room) => (
             <option name="roomId" value={room.id} key={room.id}>
@@ -85,7 +86,7 @@ const UpdateForm = ({ user }) => {
           ))}
         </select>
         <p className="updatedetails-text">Details:</p>
-        <input
+        <textarea
           onChange={(e) => {
             const detailsValue = e.target.value
             setUpdate({ ...currentUpdate, details: detailsValue })

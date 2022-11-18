@@ -97,8 +97,9 @@ const AccountDetails = ({ user, handleLogOut }) => {
     return (
       <div className="account-container">
         <div className="update-title">Update Account</div>
-        <form className="form-container" onSubmit={handleSubmit}>
+        <form className="update-form-container" onSubmit={handleSubmit}>
           <input
+            className="update-account-input"
             type="text"
             onChange={handleChange}
             value={updateFormValues.name}
@@ -107,6 +108,7 @@ const AccountDetails = ({ user, handleLogOut }) => {
             name="name"
           />
           <input
+            className="update-account-input"
             type="text"
             onChange={handleChange}
             value={updateFormValues.email}
@@ -115,6 +117,7 @@ const AccountDetails = ({ user, handleLogOut }) => {
             name="email"
           />
           <input
+            className="update-account-input"
             type="password"
             onChange={handleChange}
             value={updateFormValues.newPassword}
@@ -123,6 +126,7 @@ const AccountDetails = ({ user, handleLogOut }) => {
             name="newPassword"
           />
           <input
+            className="update-account-input"
             type="password"
             onChange={handleChange}
             value={updateFormValues.confirmNewPassword}
@@ -131,6 +135,7 @@ const AccountDetails = ({ user, handleLogOut }) => {
             name="confirmNewPassword"
           />
           <input
+            className="update-account-input"
             type="password"
             onChange={handleChange}
             value={updateFormValues.password}
@@ -139,7 +144,7 @@ const AccountDetails = ({ user, handleLogOut }) => {
             name="password"
             required
           />
-          <div className="account">
+          <div className="accountbtns">
             <button className="btn">Submit</button>
             <button
               className="btn"
