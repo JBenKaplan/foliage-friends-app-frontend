@@ -38,6 +38,7 @@ const PlantForm = ({ user, getAllPlants, roomList }) => {
       <form className="form-container" onSubmit={submitHandleClick}>
         <h4 className="roomform-text">-Create New Plant-</h4>
         <select
+          className="select-room"
           onChange={handleChange}
           name="roomId"
           value={plantFormValues.roomId}
